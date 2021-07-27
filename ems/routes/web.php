@@ -38,7 +38,7 @@ Route::get('logout', function () {
     return view("login");
 });
 
-//normal screen
+//normal user screen
 Route::get('emp-records', [EmployeeController::class, 'index']);
 Route::get('edit/{id}', [EmployeeController::class, 'show']);
 Route::post('edit/{id}', [EmployeeController::class, 'edit']);
