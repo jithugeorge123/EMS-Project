@@ -26,7 +26,9 @@ Route::view('employee','employee');
 
 Route::post("register",[UserReg::class,'userReg']);
 Route::view('forgotPass','forgotPass');
+Route::view('editPass','edittPass');
 Route::post("forgotPass",[UserForgot::class,'userFor']);
+Route::post("editPass",[UserForgot::class,'update']);
 
 Route::get('logout', function () {
     if(session()->has('user'))

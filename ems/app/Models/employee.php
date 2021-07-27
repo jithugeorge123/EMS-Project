@@ -10,4 +10,5 @@ class employee extends Model
     use HasFactory;
     protected $table = 'employee';
     public $timestamps=false;
+    protected  $primaryKey = 'emp_id';
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\employee;
 
 class UserForgot extends Controller
 {
@@ -13,17 +14,18 @@ class UserForgot extends Controller
         ]);
         $data=$req->input();
         $emp_id= intval($data['empId']);
-        $dbEmp= DB::table('employee')
-                ->where('emp_id', '=', $emp_id)
-                ->get();
-        foreach($dbEmp as $item){
-            if($item->emp_id){
-                    $return_data=true;
-                }
-            else{
-                $return_data=false;
-            }
-        }
-        return view('forgotPass',['return_data'=>$return_data]);
+      
+        $dbEmp=employee::find($emp_id);
+        // return $dbEmp;
+
+        return view('editPass',['dbEmp'=>$dbEmp]);
+    }
+
+    function update(Request $req){
+        $data=employee::find($req->empId);
+        $data->emp_password=$req->password;
+        $data->save();
+        return redirect('login');
+
     }
 }

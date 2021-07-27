@@ -15,29 +15,23 @@
  <body>
   <br />
   <div class="container box">
-   <h3 align="center">Employee Login</h3><br />
+   <h3 align="center">Change Password</h3><br />
 
-  @if($errors->any())
-   @foreach($errors->all() as $err)
-   <li> {{$err}} </li>
-   @endforeach
-   @endif
-   <form action="forgotPass" method= "POST" >
+   <form action="editPass" method= "POST" >
    @csrf
     <div class="form-group">
-     <label>Enter Employee Id</label>
-     <input type="text" name="empId" class="form-control" >
-    </div>
-    <!-- <div class="form-group">
+    <label>   
+        Employee Name : {{$dbEmp['emp_first_name']}} {{$dbEmp['emp_last_name']}}
+    </label><br>
+    <input type="hidden" name="empId" value= "{{$dbEmp['emp_id']}}">
      <label>Enter New Password</label>
      <input type="password" name="password" class="form-control"> 
-    </div> -->
-    
+    </div>
+   
     <div class="form-group">
-     <button type="submit" class="btn btn-primary" >Check User</button>
+     <button type="submit" class="btn btn-primary" >Change Password</button>
     </div>
    </form>
-   
-    
-  </div>
+
+   </div>
  </body>
