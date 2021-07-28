@@ -9,6 +9,10 @@ class UserAuth extends Controller
 {
     //
     function userLogin(Request $req){
+        $req->validate([
+            'user'=>'required',
+            'password'=>'required',
+        ]);
         $data=$req->input();
         $emp_i= intval($data['user']);
         $dbEmp= DB::table('employee')

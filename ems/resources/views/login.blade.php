@@ -49,9 +49,11 @@
      <label>Enter Password</label>
      <input type="password" name="password" class="form-control">
     </div>
+    <span style= "color:red">@error('user'){{$message}}@enderror</span>
     <div class="form-group">
      <button type="submit" class="btn btn-primary" >Login</button>
     </div>
+    <span style= "color:red">@error('password'){{$message}}@enderror</span>
    </form>
    <a class="btn" href="{{ url('/register') }}">Register Here</a>
    <a class="btn" href='/forgotPass'>Forgot Password ?</a>

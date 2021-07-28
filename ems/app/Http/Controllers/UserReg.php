@@ -20,6 +20,7 @@ class UserReg extends Controller
         $emp->emp_city=$data["city"];
         $emp->emp_password=$data["psw"];
         $emp->save();
+        return view('regPass',['emp'=>$emp]);
 
     }
 }
