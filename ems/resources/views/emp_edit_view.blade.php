@@ -30,7 +30,7 @@
 </head>
 <body class="container">
     <center>
-    <h1>Welcome To Normal User Screen</h1>
+    <h1>Welcome {{session('user_name')}}</h1>
     </center>
 <p><span class="glyphicon glyphicon-user"></p>Profile</span>
 <div id="up">
@@ -41,11 +41,10 @@
 <td>Lastst Name</td>
 <td>Mobile No</td>
 <td>Emp DOB</td>
-<td>gender</td>
-<td>address</td>
-<td>city</td>
-<td>username</td>
-<td>password</td>
+<td>Gender</td>
+<td>Address</td>
+<td>City</td>
+<td>Password</td>
 <td>Update</td>
 </tr>
 @foreach ($users as $user)
@@ -58,7 +57,6 @@
 <td>{{ $user->emp_gender }}</td>
 <td>{{ $user->emp_comm_address }}</td>
 <td>{{ $user->emp_city}}</td>
-<td>{{ $user->emp_user_name}}</td>
 <td>{{ $user->emp_password}}</td>
 <td><a href = 'edit/{{ $user->emp_id }}'>Edit</a></td>
 </tr>
@@ -67,12 +65,11 @@
 </div>
 
 <div id="down" class="col-sm-4">
+<h3 text-align:center><b> ENTER LOG ISSUES </b></h3>
 <form action="insert" method="POST" class="form-group">
     @csrf
-    <label>Enter Log ID</label>
-    <input type="text" name="log_id" placeholder="1" class="form-control"><br>
-    <label>Enter Employee ID</label>
-    <input type="text" name="emp_id" placeholder="1" class="form-control"><br>
+    <label>Employee ID : {{ $user->emp_id }}</label>
+    <input type="hidden" name="emp_id" placeholder="1" value= "{{$user->emp_id}}" class="form-control"><br>
     <label>Enter Issue Title</label>
     <input type="text" name="issue_title" placeholder="Laptop" class="form-control"><br>
     <label>Enter Issue Description</label>
@@ -80,5 +77,6 @@
     <button type="submit">submit</button>
 </form>
 </div>
+<a href='/logout'>Logout</a>
 </body>
 </html>

@@ -9,4 +9,5 @@ class log_issue extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $table = 'log_issue';
 }

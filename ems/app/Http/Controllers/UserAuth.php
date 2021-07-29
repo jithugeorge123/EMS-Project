@@ -2,39 +2,47 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
-use App\Models\login;
+use App\Models\employee;
 use Illuminate\Http\Request;
 
 class UserAuth extends Controller
 {
     //
     function userLogin(Request $req){
+        $data=$req->input();
+        $emp_i= intval($data['user']);
         $req->validate([
             'user'=>'required',
             'password'=>'required',
         ]);
-        $data=$req->input();
-        $emp_i= intval($data['user']);
-        $dbEmp= DB::table('employee')
-                ->where('emp_id', '=', $emp_i)
-                ->get();
-        $dbEmp_pass= DB::table('logins')
-                ->where('emp_id', '=', $emp_i)
-                ->get("pass");
-        foreach($dbEmp as $item){
+        
+        // $dbEmp= DB::table('employee')
+        //         ->where('emp_id', '=', $emp_i)
+        //         ->get();
+        $dbEmp=employee::where('emp_id','=',$emp_i)->first();
 
-            if(!$item->emp_id){
-                    echo " Enter correct emp_id";
+       $message="Enter Correct Details";
+            if(!$dbEmp){
+                return redirect()->back()->with('fail', 'Incorrect Employee Id');
+                    
                 }
-                else {
-                    if($item->emp_password==$data['password']){
-                        $req->session()->put('user',$item->emp_first_name);
-                        return redirect('employee');
+            else {
+                if($dbEmp->emp_password==$data['password']){
+                    if($dbEmp->emp_type=='normal'){
+                        $req->session()->put('user',$dbEmp->emp_id);
+                        $req->session()->put('user_type','normal');
+                        $req->session()->put('user_name',$dbEmp->emp_first_name);
+                        return redirect('emp-records');
                     }
                 }
+                else{
+                    return redirect()->back()->with('fail', 'Incorrect Password');  
+                }
+                    
+                    
+            }
         
 
         }
 
-    }
 }

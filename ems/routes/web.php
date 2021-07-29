@@ -4,6 +4,7 @@ use App\Http\Controllers\UserAuth;
 use App\Http\Controllers\UserForgot;
 use App\Http\Controllers\UserReg;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,16 @@ Route::get('/', function () {
 });
 
 Route::post("user", [UserAuth::class, 'userLogin']);
-Route::view('login', 'login');
+// Route::view('login', 'login');
+Route::get('/login', function () {
+    if (session()->has('user')) {
+        if(session()->has('user')=='normal'){
+            return redirect('emp-records');
+        }
+            
+    }
+    return view("login");
+});
 Route::view('register', 'register');
 Route::view('employee', 'employee');
 
@@ -32,7 +42,7 @@ Route::view('regPass','regPass');
 Route::post("forgotPass",[UserForgot::class,'userFor']);
 Route::post("editPass",[UserForgot::class,'update']);
 
-Route::get('logout', function () {
+Route::get('/logout', function () {
     if (session()->has('user')) {
         session()->pull('user');
     }

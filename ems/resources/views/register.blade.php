@@ -5,13 +5,13 @@
 <style>  
 body{  
   font-family: Calibri, Helvetica, sans-serif;  
-  background-color: pink;  
+  background-color: #333;  
 }  
 .container {  
-    margin: 0 auto;
+    margin:  0 auto;
     max-width: 540px;
-    padding: 50px;  
-    background-color: lightblue;  
+    padding: 20px 80px 20px 60px;  
+    background-color: lightgrey;  
 }  
   
 input[type=text], input[type=password], textarea {  
@@ -112,5 +112,7 @@ City :
     <input type="password" placeholder="Retype Password" name="psw-repeat" required>  
     <button type="submit" class="registerbtn">Register</button>    
 </form>  
+
+<button class="registerbtn" onclick="window.location.href='login';" >login </button> 
 </body>  
 </html> 

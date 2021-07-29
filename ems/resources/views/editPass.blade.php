@@ -6,10 +6,19 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style type="text/css">
    .box{
+    padding:10px;   
     width:600px;
-    margin:0 auto;
-    border:1px solid #ccc;
+    margin:100px auto;
+    border:2px solid;
+    border-color: blue;
+    background-color: lightgrey;
+
    }
+
+   body{  
+     font-family: Calibri, Helvetica, sans-serif;  
+     background-color: #333;  
+}
   </style>
  </head>
  <body>

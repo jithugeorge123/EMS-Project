@@ -25,7 +25,7 @@ class UserForgot extends Controller
         $data=employee::find($req->empId);
         $data->emp_password=$req->password;
         $data->save();
-        return redirect('login');
+        return redirect()->back()->with('success', 'password changed');
 
     }
 }
