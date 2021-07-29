@@ -5,15 +5,15 @@
 <style>  
 body{  
   font-family: Calibri, Helvetica, sans-serif;  
-  background-color: pink;  
+  background-color: #333;  
 }  
 .container {  
-    margin: 0 auto;
+    margin:  0 auto;
     max-width: 540px;
-    padding: 50px;  
-    background-color: lightblue;  
+    padding: 20px 80px 20px 60px;  
+    background-color: lightgrey;  
 }  
-  
+
 input[type=text], input[type=password], textarea {  
   width: 100%;  
   padding: 15px;  
@@ -45,7 +45,16 @@ hr {
 }  
 .registerbtn:hover {  
   opacity: 1;  
-}  
+} 
+
+.pager{
+  margin: 0;
+  position: relative;
+  top:-10%;
+  left: 98%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 </style>  
 </head>  
 <body>  
@@ -68,9 +77,12 @@ Communication Address :  {{$emp['emp_comm_address']}}<br> <br>
 <label>
 City :  {{$emp['emp_city']}}<br> <br> 
 </label>   
-    
+</div>
+<ul class="pager" >
+                <li class="previous"><a href='login'>Login</a></li>    
+            </ul>
 
-    
+
   
     
 

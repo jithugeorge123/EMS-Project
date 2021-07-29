@@ -11,15 +11,15 @@ class EmployeeController extends Controller
     //display employee details(profile)
     public function empindex()
     {
-        $users = DB::table('employees')
-            ->where('emp_id', 1)
+        $users = DB::table('employee')
+            ->where('emp_id', session('user'))
             ->get();
         return view('emp_edit_view', ['users' => $users]);
     }
     //show the employee
     public function show($id)
     {
-        $users = DB::select('select * from employees where emp_id = ?', [$id]);
+        $users = DB::select('select * from employee where emp_id = ?', [$id]);
         return view('emp_update', ['users' => $users]);
     }
     //edit the mobile no and address
@@ -46,6 +46,6 @@ class EmployeeController extends Controller
         $emp->issue_title = $req->issue_title;
         $emp->issue_desc = $req->issue_desc;
         $emp->save();
-        return redirect('insertIssue');
+        return redirect()->back()->with('success', 'added issue');
     }
 }

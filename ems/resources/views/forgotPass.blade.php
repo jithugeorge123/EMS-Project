@@ -19,6 +19,14 @@
      font-family: Calibri, Helvetica, sans-serif;  
      background-color: #333;  
 }
+.pager{
+  margin: 0;
+  position: relative;
+  top:-10%;
+  left: 98%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
   </style>
  </head>
  <body>
@@ -52,6 +60,8 @@
     </div>
    </form>
    
-    
   </div>
+  <ul class="pager" >
+                <li class="previous"><a href='login'>Login</a></li>    
+            </ul>
  </body>

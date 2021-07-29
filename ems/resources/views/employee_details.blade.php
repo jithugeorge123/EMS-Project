@@ -61,7 +61,7 @@
                 </tbody>
             </table>
             <ul class="pager">
-                <li class="previous"><a href='/logout'>Back</a></li>    
+                <li class="previous"><a href={{"/admin"}}>Back</a></li>    
             </ul>
         </div>
     </div>

@@ -36,8 +36,8 @@
             @method('POST')
             <h4 class="display-4 text-center">Create New Log</h4><hr><br>
             <div class="form-group">
-                <label>Employee Id</label>
-                <input type="text" class="form-control"  name="emp_id" placeholder="Enter the employee Id">
+                <label>Employee Id : {{session('user')}}</label>
+                <input type="hidden" class="form-control" value="{{session('user')}}"  name="emp_id" placeholder="Enter the employee Id">
             </div>   
             <div class="form-group">
                 <label>Issue Title</label>

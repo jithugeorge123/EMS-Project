@@ -59,13 +59,13 @@ Route::get('/logout', function () {
 //normal user screen
 Route::get('emp-records', [EmployeeController::class, 'empindex']);
 Route::get('edit/{id}', [EmployeeController::class, 'show']);
-Route::post('edit/{id}', [EmployeeController::class, 'editdetails']);
+Route::post('edit/{id}', [EmployeeController::class, 'edit']);
 Route::view('insertIssue', 'insertIssue');
 Route::post('insertissue', [EmployeeController::class, 'insert']);
 //manager
 Route::get('manager-records', [ManagerController::class, 'index']);
 Route::get('update/{id}', [ManagerController::class, 'show']);
-Route::post('update/{id}', [ManagerController::class, 'edit']);
+Route::post('update/{id}', [ManagerController::class, 'editrecord']);
 Route::post('insertRe', [ManagerController::class, 'insertIssue']);
 Route::get('delete/{id}', [ManagerController::class, 'delete']);
 //Route::post('update/{id}', [ManagerController::class, 'add']);
@@ -106,7 +106,7 @@ Route::post('addproject/',[MemberController::class,'addproject']);
 Route::get('emp_proj/{emp_id}',[MemberController::class,'empprojects']);
 
 Route::get('log_issues',[MemberController::class,'logissues']);
-Route::post('create_log/',[MemberController::class,'createlog']);
+Route::post('create_log',[MemberController::class,'createlog']);
 Route::get('update_log/{log_id}',[MemberController::class,'logissue']);
 Route::post('update_log/',[MemberController::class,'updatelog']);
 

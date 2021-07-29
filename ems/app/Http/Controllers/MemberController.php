@@ -158,8 +158,8 @@ class MemberController extends Controller
 
     public function searchbyidorname(Request $req)
     {
-        $fname = Employee::where('emp_first_name', $req->emp_id_name)->first();
-        $eid = Employee::where('emp_id', $req->emp_id_name)->first();
+        $fname = employee::where('emp_first_name', $req->emp_id_name)->first();
+        $eid = employee::where('emp_id', $req->emp_id_name)->first();
         if ($fname) {
             $data = DB::table('project')
                 ->join('emp_proj', 'project.proj_id', "=", 'emp_proj.proj_id')

@@ -40,10 +40,15 @@
     <body class="container">
     <h1 style="margin-top:150px; margin-left:270px;">Create  Issue</h1>
     <div class="col-lg-5">
+    @if(Session::has('success'))
+    <div class="alert alert-success">
+        {{ session()->get('success') }}
+    </div>
+    @endif
 <form action="insertRecord" method="POST" class="form-group">
     @csrf
-    <label>Employee ID</label>
-    <input  type="text" name="emp_id" placeholder="id" class="form-control" ><br>
+    <label>Employee ID: {{session('user')}}</label>
+    <input  type="hidden" name="emp_id" value ="{{session('user')}}" placeholder="id" class="form-control" ><br>
     <label>Enter Issue Title</label>
     <input type="text" name="issue_title" placeholder="Laptop" class="form-control"><br>
     <span class="text-danger">@error('issue_title'){{$message}}@enderror</span><br>

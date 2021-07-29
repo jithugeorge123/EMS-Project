@@ -17,8 +17,8 @@ class ManagerController extends Controller
     //display profile
     public function index()
     {
-        $users = DB::table('employees')
-            ->where('emp_id', 1)
+        $users = DB::table('employee')
+            ->where('emp_id', session('user'))
             ->get();
         return view('manager', ['users' => $users]);
     }
@@ -33,7 +33,7 @@ class ManagerController extends Controller
     }
     public function show($id)
     {
-        $users = DB::select('select * from employees where emp_id = ?', [$id]);
+        $users = DB::select('select * from employee where emp_id = ?', [$id]);
         return view('manager_update', ['users' => $users]);
     }
     //update profile details
@@ -53,16 +53,16 @@ class ManagerController extends Controller
                 'issue_desc' => 'required',
             ]
         );
-        //$users = DB::select('select emp_id from employees where emp_id = ?', [$id]);
+        //$users = DB::select('select emp_id from employee where emp_id = ?', [$id]);
         $emp = new log_issue;
         $emp->log_id = $req->log_id;
         $emp->emp_id = $req->emp_id;
         $emp->issue_title = $req->issue_title;
         $emp->issue_desc = $req->issue_desc;
         $emp->save();
-        //return redirect()->back()->with('success', 'added issue');
-        return redirect('insertIssue');
-    } //insert employees into project
+        return redirect()->back()->with('success', 'added issue');
+        // return redirect('insertIssue');
+    } //insert employee into project
     public function insertEmp(Request $req)
     {
         $req->validate(
@@ -79,14 +79,14 @@ class ManagerController extends Controller
         return redirect('addEmployee');
 
     }
-    //delete the employees from project
+    //delete the employee from project
     public function delete($id)
     {
-        //$data = DB::select('select emp_proj_id from emp_projs where emp_id = ? and manager_id = 1', [$id]);
+        //$data = DB::select('select emp_proj_id from emp_proj where emp_id = ? and manager_id = 1', [$id]);
         // $data = emp_proj::find($data);
         //return $data;
 
-        $data = DB::table('emp_projs')
+        $data = DB::table('emp_proj')
             ->where('emp_id', $id);
         $data->delete();
         //return "Record deleted successfully";
@@ -95,12 +95,12 @@ class ManagerController extends Controller
     public function displayLog()
     {
 
-        $logs = DB::table('log_issues')
-            ->join('employees', 'employees.emp_id', '=', 'log_issues.emp_id')
-            ->join('emp_projs', 'employees.emp_id', '=', 'emp_projs.emp_id')
-            ->join('projects', 'projects.proj_id', '=', 'emp_projs.proj_id')
-            ->select('log_issues.*')
-            ->where('emp_projs.manager_id', 1)
+        $logs = DB::table('log_issue')
+            ->join('employee', 'employee.emp_id', '=', 'log_issue.emp_id')
+            ->join('emp_proj', 'employee.emp_id', '=', 'emp_proj.emp_id')
+            ->join('project', 'project.proj_id', '=', 'emp_proj.proj_id')
+            ->select('log_issue.*')
+            ->where('emp_proj.manager_id', session('user'))
             ->get();
         return view('log', ['logs' => $logs]);
     }
