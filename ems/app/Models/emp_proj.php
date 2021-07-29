@@ -9,4 +9,5 @@ class emp_proj extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $table = 'emp_proj';
 }

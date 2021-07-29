@@ -27,7 +27,7 @@ class ManagerController extends Controller
     {
         $data = DB::table('employee')
             ->join('emp_proj', 'employee.emp_id', "=", 'emp_proj.emp_id')
-            ->where('emp_proj.manager_id', 1)
+            ->where('emp_proj.manager_id', session('user'))
             ->get();
         return view('reportees', ['data' => $data]);
     }
@@ -42,7 +42,7 @@ class ManagerController extends Controller
         $emp_mobile_no = $request->input('emp_mobile_no');
         $emp_comm_address = $request->input('emp_comm_address');
         DB::update('update employee set emp_mobile_no = ?,emp_comm_address=? where emp_id = ?', [$emp_mobile_no, $emp_comm_address, $id]);
-        echo "Record updated successfully.";
+        return redirect('manager-records');
     } //insert issues
     public function insertIssue(Request $req)
     {

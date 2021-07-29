@@ -28,7 +28,7 @@ class EmployeeController extends Controller
         $emp_mobile_no = $request->input('emp_mobile_no');
         $emp_comm_address = $request->input('emp_comm_address');
         DB::update('update employee set emp_mobile_no = ?,emp_comm_address=? where emp_id = ?', [$emp_mobile_no, $emp_comm_address, $id]);
-        echo "Record updated successfully.";
+        return redirect('emp-records');
     }
     //insert issues into log_issue table
     public function insert(Request $req)
