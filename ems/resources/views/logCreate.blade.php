@@ -32,6 +32,9 @@
             top: 70%;
             left: 700px;
         }
+        input{
+            border-radius: 10px;
+        }
     </style>
     </head>
     <body class="container">
@@ -40,11 +43,13 @@
 <form action="insertRecord" method="POST" class="form-group">
     @csrf
     <label>Employee ID</label>
-    <input type="text" name="emp_id" placeholder="id" class="form-control" ><br>
+    <input  type="text" name="emp_id" placeholder="id" class="form-control" ><br>
     <label>Enter Issue Title</label>
     <input type="text" name="issue_title" placeholder="Laptop" class="form-control"><br>
+    <span class="text-danger">@error('issue_title'){{$message}}@enderror</span><br>
     <label>Enter Issue Description</label>
     <input type="text" name="issue_desc" placeholder="Not able to login" class="form-control"><br>
+    <span class="text-danger">@error('issue_desc'){{$message}}@enderror</span><br>
     <button type="submit" class="btn btn-primary">submit</button>
     <a href="/manager-records">Back To Profile</a>
 </form>

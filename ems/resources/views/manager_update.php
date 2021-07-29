@@ -29,7 +29,7 @@
 </head>
 <body class="container">
     <div class="col-sm-4" id="up">
-<form action = "/edit/<?php echo $users[0]->emp_id; ?>" method = "post">
+<form action = "/update/<?php echo $users[0]->emp_id; ?>" method = "post">
 <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 <table class="table table-striped table-dark">
 <tr>

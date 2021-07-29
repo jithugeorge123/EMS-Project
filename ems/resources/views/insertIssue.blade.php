@@ -1,5 +1,5 @@
 <!--
- * File Name => LogCreate
+ * File Name => insertIssue
  * Author    => Pallavi Shinde
  * Purpose   => File will create issue.
  *-->
@@ -37,14 +37,16 @@
     <body class="container">
     <h1 style="margin-top:150px; margin-left:270px;">Create  Issue</h1>
     <div class="col-lg-5">
-    <form action="insertIssue" method="POST" class="form-group">
+    <form action="insert" method="POST" class="form-group">
     @csrf
     <label>Employee ID</label>
     <input type="text" name="emp_id" placeholder="id" class="form-control" ><br>
     <label>Enter Issue Title</label>
-    <input type="text" name="issue_title" placeholder="Laptop" class="form-control"><br>
+    <input type="text" name="issue_title" placeholder="Laptop" class="form-control">
+    <span class="text-danger">@error('issue_title'){{$message}}@enderror</span><br>
     <label>Enter Issue Description</label>
-    <input type="text" name="issue_desc" placeholder="Not able to login" class="form-control"><br>
+    <input type="text" name="issue_desc" placeholder="Not able to login" class="form-control">
+    <span class="text-danger">@error('issue_desc'){{$message}}@enderror</span><br><br>
     <button type="submit" class="btn btn-primary">submit</button>
     <a href="/emp-records">Back To Profile</a>
 </form>

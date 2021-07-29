@@ -32,9 +32,11 @@
     <form action = "addemp" method="POST" class="form-group" >
     @csrf
     <label>Employee ID</label>
-    <input type="text" name="emp_id"  placeholder="1" class="form-control"  ><br>
+    <input type="text" name="emp_id"  placeholder="1" class="form-control"  >
+    <span class="text-danger">@error('emp_id'){{$message}}@enderror</span><br>
     <label>Enter Project ID</label>
-    <input type="text" name="proj_id" placeholder="project id" class="form-control"><br>
+    <input type="text" name="proj_id" placeholder="project id" class="form-control">
+    <span class="text-danger">@error('proj_id'){{$message}}@enderror</span><br>
     <label>Enter Manager ID</label>
     <input type="text" name="manager_id" placeholder="manager id" class="form-control"><br>
     <button type="submit" class="btn btn-primary" class="button">submit</button>
