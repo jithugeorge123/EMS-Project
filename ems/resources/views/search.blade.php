@@ -33,7 +33,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Welcome Admin</a>
+                <a class="navbar-brand" href="#">Welcome {{session('user_name')}}</a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href={{"admin"}}>Home</a></li>
@@ -43,7 +43,7 @@
                 <li class="active"><a href="#">Search<span class="glyphicon glyphicon-search"></span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                <li><a href='/logout'><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
         </div>
     </nav>
