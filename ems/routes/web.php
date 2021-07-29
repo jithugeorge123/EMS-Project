@@ -4,7 +4,7 @@ use App\Http\Controllers\UserAuth;
 use App\Http\Controllers\UserForgot;
 use App\Http\Controllers\UserReg;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MemberController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,3 +61,37 @@ Route::view('logCreate', 'logCreate');
 Route::view('addEmployee', 'addEmployee');
 Route::post('insertRecord', [ManagerController::class, 'insertIssue']);
 Route::post('addemp', [ManagerController::class, 'insertEmp']);
+
+
+Route::view('admin','admin');
+Route::view('addproject','addproject');
+Route::view('log_issues','log_issues');
+Route::view('create_log','create_log');
+Route::view('search','search');
+ 
+
+Route::get('admin',[MemberController::class,'count' ]);
+Route::get('admin',[MemberController::class,'list']);
+Route::get('employee_details/{emp_id}',[MemberController::class,'showsData']);
+
+Route::get('employees_details',[MemberController::class,'details']);
+Route::get('delete/{emp_id}',[MemberController::class,'delete']);
+Route::get('updateemployee/{emp_id}',[MemberController::class,'showData']);
+Route::post('updateemployee/',[MemberController::class,'updateEmployee']);
+
+Route::get('projects',[MemberController::class,'projdetails']);
+Route::get('deleteproject/{proj_id}',[MemberController::class,'deleteproject']);
+Route::get('updateproject/{proj_id}',[MemberController::class,'showproject']);
+Route::post('updateproject/',[MemberController::class,'updateproject']);
+Route::post('addproject/',[MemberController::class,'addproject']);
+
+
+Route::get('emp_proj/{emp_id}',[MemberController::class,'empprojects']);
+
+Route::get('log_issues',[MemberController::class,'logissues']);
+Route::post('create_log/',[MemberController::class,'createlog']);
+Route::get('update_log/{log_id}',[MemberController::class,'logissue']);
+Route::post('update_log/',[MemberController::class,'updatelog']);
+
+
+Route::post('searchbyidname/',[MemberController::class,'searchbyidorname']);

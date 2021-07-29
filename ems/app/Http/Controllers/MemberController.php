@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employee;
+use App\Models\employee;
 use App\Models\LogIssue;
-use App\Models\Project;
+use App\Models\project;
 use DB;
 use Illuminate\Http\Request;
 
@@ -12,31 +12,31 @@ class MemberController extends Controller
 {
 
     function list() {
-        $data = Employee::all();
+        $data = employee::all();
         return view('admin', ['employees' => $data]);
     }
 
     public function showsData($emp_id)
     {
-        $data = Employee::where('emp_id', $emp_id)->first();
+        $data = employee::where('emp_id', $emp_id)->first();
         return view('employee_details', compact('data'));
     }
 
     public function showData($emp_id)
     {
-        $data = Employee::where('emp_id', $emp_id)->first();
+        $data = employee::where('emp_id', $emp_id)->first();
         return view('updateemployee', compact('data'));
     }
 
     public function details()
     {
-        $data = Employee::all();
+        $data = employee::all();
         return view('employees_details', ['employees' => $data]);
     }
 
     public function delete($emp_id)
     {
-        $data = Employee::where('emp_id', $emp_id);
+        $data = employee::where('emp_id', $emp_id);
         $data->delete();
         return redirect('employees_details');
     }
@@ -59,20 +59,20 @@ class MemberController extends Controller
 
     public function projdetails()
     {
-        $data = Project::all();
+        $data = project::all();
         return view('projects', ['data' => $data]);
     }
 
     public function deleteproject($proj_id)
     {
-        $data = Project::where('proj_id', $proj_id);
+        $data = project::where('proj_id', $proj_id);
         $data->delete();
         return redirect('projects');
     }
 
     public function showproject($proj_id)
     {
-        $data = Project::where('proj_id', $proj_id)->first();
+        $data = project::where('proj_id', $proj_id)->first();
         return view('updateproject', compact('data'));
     }
 
@@ -97,7 +97,7 @@ class MemberController extends Controller
                 'proj_end_date' => 'required|after:proj_start_date'
             ]
         );
-        $proj = new Project;
+        $proj = new project;
         $data = $req->input();
         $proj->proj_name = $data['proj_name'];
         $proj->proj_desc = $data['proj_desc'];
