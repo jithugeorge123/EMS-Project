@@ -31,8 +31,22 @@ class UserAuth extends Controller
                     if($dbEmp->emp_type=='normal'){
                         $req->session()->put('user',$dbEmp->emp_id);
                         $req->session()->put('user_type','normal');
-                        $req->session()->put('user_name',$dbEmp->emp_first_name);
+                        $req->session()->put('user_name',$dbEmp->emp_first_name . $dbEmp->emp_last_name);
                         return redirect('emp-records');
+                    }
+                    if($dbEmp->emp_type=='admin'){
+                        $req->session()->put('user',$dbEmp->emp_id);
+                        $req->session()->put('user_type','admin');
+                        $req->session()->put('user_name',$dbEmp->emp_first_name . $dbEmp->emp_last_name);
+                        return redirect('admin');
+
+                    }
+                    if($dbEmp->emp_type=='manager'){
+                        $req->session()->put('user',$dbEmp->emp_id);
+                        $req->session()->put('user_type','manager');
+                        $req->session()->put('user_name',$dbEmp->emp_first_name . $dbEmp->emp_last_name );
+                        return redirect('manager-records');
+
                     }
                 }
                 else{

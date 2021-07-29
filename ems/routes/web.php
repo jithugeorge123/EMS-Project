@@ -5,7 +5,7 @@ use App\Http\Controllers\UserForgot;
 use App\Http\Controllers\UserReg;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
-
+use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\MemberController;
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +28,12 @@ Route::get('/login', function () {
     if (session()->has('user')) {
         if(session()->has('user')=='normal'){
             return redirect('emp-records');
+        }
+        if(session()->has('user')=='admin'){
+            return redirect('admin');
+        }
+        if(session()->has('user')=='manager'){
+            return redirect('manager-records');
         }
             
     }

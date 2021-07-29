@@ -64,12 +64,12 @@
     <div style="margin-top:90px; margin-left:10px; color:white; " class="col-sm-4">
     <ul>
     <li><a  href="insertIssue">Create Issue</a></li><br>
-    <li><button  class="btn btn-primary" onclick="window.location.href='/emp-records'">logout</button></li>
+    <li><button  class="btn btn-primary" onclick="window.location.href='/logout'">logout</button></li>
     </ul>
     </div>
     <div class="line" class="col-sm-2"></div>
 <div class="col-sm-4" style=" margin-top:50px; margin-left:10px;" >
-<h2 style="font-size: 40px; color:#404040">Welcome  to Normal Screen</h2>
+<h2 style="font-size: 40px; color:#404040">Welcome  {{session('user_name')}}</h2>
 <div style="color: #101010;" class="data">
 @foreach ($users as $user)
 <h2>ID  : <span style="color: #F8F8FF;">{{ $user->emp_id }}</span></h2>
@@ -80,7 +80,6 @@
 <h2>Genger  : <span style="color: #F8F8FF;">{{ $user->emp_gender }}</span></h2>
 <h2>Address  : <span style="color: #Ebf6f7;">{{ $user->emp_comm_address }}</span></h2>
 <h2>City   : <span style="color: #Ebf6f7;">{{ $user->emp_city }}</span></h2>
-<h2>Username  : <span style="color: #Ebf6f7;">{{ $user->emp_user_name }}</span></h2>
 <h2>Password   : <span style="color: #Ebf6f7;">{{ $user->emp_password }}</span></h2>
 <h2>Edit <a style="color: #Ebf6f7;" href = 'edit/{{$user->emp_id }}' class="glyphicon glyphicon-edit"></a></h2>
 @endforeach

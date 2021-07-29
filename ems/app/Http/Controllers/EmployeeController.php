@@ -38,6 +38,6 @@ class EmployeeController extends Controller
         $emp->issue_title = $req->issue_title;
         $emp->issue_desc = $req->issue_desc;
         $emp->save();
-        return redirect('emp-records');
+        return redirect('insertIssue');
     }
 }

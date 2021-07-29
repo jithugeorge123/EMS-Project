@@ -103,7 +103,7 @@ class MemberController extends Controller
         $proj->proj_desc = $data['proj_desc'];
         $proj->proj_start_date = $data['proj_start_date'];
         $proj->proj_end_date = $data['proj_end_date'];
-        $result = $proj->save();
+        $proj->save();
         if($result){
             return redirect('projects');
         }else{
