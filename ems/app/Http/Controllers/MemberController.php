@@ -89,6 +89,14 @@ class MemberController extends Controller
 
     public function addproject(Request $req)
     {
+        $req->validate(
+            [
+                'proj_name' => 'required',
+                'proj_desc' => 'required',
+                'proj_start_end' => 'required|before:proj_end_date',
+                'proj_end_date' => 'required|after:proj_start_date'
+            ]
+        );
         $proj = new project;
         $data = $req->input();
         $proj->proj_name = $data['proj_name'];
@@ -97,7 +105,7 @@ class MemberController extends Controller
         $proj->proj_end_date = $data['proj_end_date'];
         $result = $proj->save();
         return redirect('projects');
-    }
+            }
 
     public function empprojects($emp_id)
     {
@@ -158,8 +166,8 @@ class MemberController extends Controller
 
     public function searchbyidorname(Request $req)
     {
-        $fname = employee::where('emp_first_name', $req->emp_id_name)->first();
-        $eid = employee::where('emp_id', $req->emp_id_name)->first();
+        $fname = Employee::where('emp_first_name', $req->emp_id_name)->first();
+        $eid = Employee::where('emp_id', $req->emp_id_name)->first();
         if ($fname) {
             $data = DB::table('project')
                 ->join('emp_proj', 'project.proj_id', "=", 'emp_proj.proj_id')
