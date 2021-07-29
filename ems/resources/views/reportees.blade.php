@@ -7,47 +7,54 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Employee Management</title>
+    <title>Document</title>
     <style>
+
         .body,html{
             background-color: gray;
-        }
-        #up{
-            top: 32%;
-            left: 32%;
         }
         .container{
             background-color: lightgray;
         }
+        div{
+            top: 10%;
+            left: 16%;
+        }
     </style>
 </head>
 <body class="container">
-    <div class="col-sm-4" id="up">
-<form action = "/edit/<?php echo $users[0]->emp_id; ?>" method = "post">
-<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
+    <center>
+<h3 style="margin-top:150px; margin-left:1px;">Reportees</h3>
+</center>
+<div class="col-sm-8">
 <table class="table table-striped table-dark">
 <tr>
-<td>Mobile Number</td>
-<td>
-<input type = 'text' name = 'emp_mobile_no'
-value = '<?php echo $users[0]->emp_mobile_no; ?>'/>
-</td>
+<td>ID</td>
+<td>First Name</td>
+<td>Last Name</td>
+<td>Mobile No</td>
+<td>DOB</td>
+<td>Gender</td>
+<td>Address</td>
+<td>City</td>
+<td>Delete</td>
 </tr>
+@foreach ($data as $emp)
 <tr>
-<td>Communication Address</td>
-<td>
-<input type = 'text' name = 'emp_comm_address'
-value = '<?php echo $users[0]->emp_comm_address; ?>'/>
-</td>
+<td>{{ $emp->emp_id }}</td>
+<td>{{ $emp->emp_first_name }}</td>
+<td>{{ $emp->emp_last_name }}</td>
+<td>{{ $emp->emp_mobile_no }}</td>
+<td>{{ $emp->emp_dob }}</td>
+<td>{{ $emp->emp_gender }}</td>
+<td>{{ $emp->emp_comm_address }}</td>
+<td>{{ $emp->emp_city}}</td>
+<td><a href ={{"delete/".$emp->emp_id}}>Delete</a></td>
 </tr>
-<tr>
-<td colspan = '2'>
-<input type = 'submit' value = "Update Details" />
-</td>
-</tr>
+@endforeach
 </table>
-</form>
-<a href="/emp-records">Back To Profile</a>
+<a href="/manager-records">Back To Profile</a>
 </div>
+
 </body>
 </html>

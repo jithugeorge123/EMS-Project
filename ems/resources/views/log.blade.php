@@ -7,47 +7,41 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Employee Management</title>
+    <title>Document</title>
     <style>
         .body,html{
             background-color: gray;
         }
-        #up{
-            top: 32%;
-            left: 32%;
-        }
         .container{
             background-color: lightgray;
         }
+        div{
+            top: 10%;
+            left: 25%;
+        }
+
     </style>
-</head>
+    </head>
 <body class="container">
-    <div class="col-sm-4" id="up">
-<form action = "/edit/<?php echo $users[0]->emp_id; ?>" method = "post">
-<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
-<table class="table table-striped table-dark">
-<tr>
-<td>Mobile Number</td>
-<td>
-<input type = 'text' name = 'emp_mobile_no'
-value = '<?php echo $users[0]->emp_mobile_no; ?>'/>
-</td>
-</tr>
-<tr>
-<td>Communication Address</td>
-<td>
-<input type = 'text' name = 'emp_comm_address'
-value = '<?php echo $users[0]->emp_comm_address; ?>'/>
-</td>
-</tr>
-<tr>
-<td colspan = '2'>
-<input type = 'submit' value = "Update Details" />
-</td>
-</tr>
+    <h2  style="margin-top:150px; margin-left:300px;">Issues of Reportees</h2>
+    <div class="col-sm-6">
+  <table class="table table-striped table-dark">
+    <tr>
+        <td>Log ID</td>
+        <td>Employee ID</td>
+        <td>Issue Type</td>
+        <td>Issue Description</td>
+    </tr>
+    @foreach ($logs as $dat)
+    <tr>
+        <td>{{$dat->log_id}}</td>
+        <td>{{$dat->emp_id}}</td>
+        <td>{{$dat->issue_title}}</td>
+        <td>{{$dat->issue_desc}}</td>
+    </tr>
+    @endforeach
 </table>
-</form>
-<a href="/emp-records">Back To Profile</a>
+<a href="/manager-records">Back To Profile</a>
 </div>
 </body>
 </html>

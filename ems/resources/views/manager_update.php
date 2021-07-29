@@ -1,3 +1,9 @@
+<!--
+ * File Name => manager_update
+ * Author    => Pallavi Shinde
+ * Purpose   => File will update the mobile number and address of manager.
+ *-->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -42,12 +48,14 @@ value = '<?php echo $users[0]->emp_comm_address; ?>'/>
 </tr>
 <tr>
 <td colspan = '2'>
-<input type = 'submit' value = "Update Details" />
+<button type="submit" class="btn btn-primary">Update Details</button>
+
 </td>
 </tr>
 </table>
 </form>
-<a href="/emp-records">Back To Profile</a>
+<a href="/manager-records">Back To Profile</a>
 </div>
+
 </body>
 </html>
