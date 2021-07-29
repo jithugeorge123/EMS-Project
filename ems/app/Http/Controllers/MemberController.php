@@ -89,14 +89,6 @@ class MemberController extends Controller
 
     public function addproject(Request $req)
     {
-        $req->validate(
-            [
-                'proj_name' => 'required',
-                'proj_desc' => 'required',
-                'proj_start_end' => 'required|before:proj_end_date',
-                'proj_end_date' => 'required|after:proj_start_date'
-            ]
-        );
         $proj = new project;
         $data = $req->input();
         $proj->proj_name = $data['proj_name'];
@@ -104,11 +96,7 @@ class MemberController extends Controller
         $proj->proj_start_date = $data['proj_start_date'];
         $proj->proj_end_date = $data['proj_end_date'];
         $result = $proj->save();
-        if($result){
-            return redirect('projects');
-        }else{
-            return back()->with('fail','something wrong');
-        }
+        return redirect('projects');
     }
 
     public function empprojects($emp_id)
