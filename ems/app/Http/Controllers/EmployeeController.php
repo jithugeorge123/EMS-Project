@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class EmployeeController extends Controller
 {
     //display employee details(profile)
-    public function index()
+    public function empindex()
     {
         $users = DB::table('employees')
             ->where('emp_id', 1)
@@ -23,7 +23,7 @@ class EmployeeController extends Controller
         return view('emp_update', ['users' => $users]);
     }
     //edit the mobile no and address
-    public function edit(Request $request, $id)
+    public function editdetails(Request $request, $id)
     {
         $emp_mobile_no = $request->input('emp_mobile_no');
         $emp_comm_address = $request->input('emp_comm_address');

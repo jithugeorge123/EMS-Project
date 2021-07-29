@@ -3,7 +3,7 @@
  * Author    => Pallavi Shinde
  * Purpose   => This is home screen of Manager.
  *-->
- <html lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,20 +56,25 @@
         margin-left: -3px;
         top: 0;
         }
-
+.button{
+    top: 500px;
+}
     </style>
 </head>
 <!--body part -->
 <body>
     <div style="margin-top:90px; margin-left:10px; color:white; " class="col-sm-4">
-    <ul>
-    <li><a  href="insertIssue">Create Issue</a></li><br>
-    <li><button  class="btn btn-primary" onclick="window.location.href='/emp-records'">logout</button></li>
+    <ul >
+    <li><span class="glyphicon glyphicon-info-sign"></span><a style=" font-weight: bold; list-style-type: none;font-size: 25px;" href="display">Issues</a></li><br>
+    <li><a  href="reportees">Reportees</a></li><br>
+    <li><a  href="logCreate">Create Issue</a></li><br>
+    <li><a  href="addEmployee">Add Reportees</a><br></li><br>
+    <li><button  class="btn btn-primary" onclick="window.location.href='/manager-records'">logout</button></li>
     </ul>
     </div>
     <div class="line" class="col-sm-2"></div>
 <div class="col-sm-4" style=" margin-top:50px; margin-left:10px;" >
-<h2 style="font-size: 40px; color:#404040">Welcome  to Normal Screen</h2>
+<h2 style="font-size: 40px; color:#404040">Welcome  to Manager Screen</h2>
 <div style="color: #101010;" class="data">
 @foreach ($users as $user)
 <h2>ID  : <span style="color: #F8F8FF;">{{ $user->emp_id }}</span></h2>
@@ -82,7 +87,7 @@
 <h2>City   : <span style="color: #Ebf6f7;">{{ $user->emp_city }}</span></h2>
 <h2>Username  : <span style="color: #Ebf6f7;">{{ $user->emp_user_name }}</span></h2>
 <h2>Password   : <span style="color: #Ebf6f7;">{{ $user->emp_password }}</span></h2>
-<h2>Edit <a style="color: #Ebf6f7;" href = 'edit/{{$user->emp_id }}' class="glyphicon glyphicon-edit"></a></h2>
+<h2>Edit <a style="color: #Ebf6f7;" href = 'update/{{$user->emp_id }}' class="glyphicon glyphicon-edit"></a></h2>
 @endforeach
 </div>
 </div>
