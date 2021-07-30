@@ -39,11 +39,6 @@ class changeUser extends Command
     public function handle()
     {
         echo "hi \n";
-        $id=readline("enter your id ");
-        
-        $dbAdmin=employee::find(intval($id));
-        if($dbAdmin['emp_type']=='admin'){
-            echo "\nAdmin is in";
            $chang_id= readline("\n enter the Employee Id for changing the type:  ");
            $emp=employee::find(intval($chang_id)); 
            if(!$emp){
@@ -51,7 +46,7 @@ class changeUser extends Command
            }
            else{
                echo "\n1. Normal Employee. \n2. Manager. \n3. Admin. ";
-               $opt=readline("Enter the Change you want to make: ");
+               $opt=readline("\n Enter the Change you want to make: ");
                switch ($opt) {
                 case "1":
                     $emp->emp_type="normal";
@@ -64,13 +59,11 @@ class changeUser extends Command
                   break;
                 }
                 $emp->save();
-                echo "\nYour change was succesfull";
+                echo "\n Your change was succesfull";
 
            }
         }
-        else{
-            echo "\n Sorry not Admin ";
-        }
+        
 
-    }
+    
 }
