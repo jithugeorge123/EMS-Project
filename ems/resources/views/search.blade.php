@@ -9,6 +9,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Search</title>
     <style>
+        @media only screen and (max-width: 120px){
+            body{
+        
+            }
+        }
         body{
             background-color:	#696969;
         }
@@ -49,7 +54,7 @@
     </nav>
 
     <div class="container" style="margin-top: 50px;">
-        <h3 style="color:white;">Search By Employee Id</h3>
+        <h3 style="color:white;">Search By Employee Id Or Employee First Name</h3>
         <hr>
         <form action="/searchbyidname" method="POST">
             @csrf

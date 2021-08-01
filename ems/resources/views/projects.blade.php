@@ -9,6 +9,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
+        @media only screen and (max-width: 120px){
+            body{
+        
+            }
+        }
         body{
             background-color:#696969;
             color:white;
@@ -53,7 +58,7 @@
                     <tr>
                         <th scope="col">Project Id</th>
                         <th scope="col">Project Name</th>
-                        <th scope="col">Project Desc</th>
+                        <th scope="col">Project Description</th>
                         <th scope="col">Project Start Date</th>
                         <th scope="col">Project End Date</th>
                         <th scope="col">Operations</th>
