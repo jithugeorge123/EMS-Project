@@ -22,7 +22,25 @@
 
     </style>
     </head>
-<body class="container">
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Welcome {{session('emp_first_name')}}</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="manager-records">Home</a></li>
+                <li class="active"><a href="#">Issues</a></li>
+                <li><a href={{"reportees"}}>Reportees</a></li>
+                <li><a href={{"logCreate"}}>Create Issue</a></li>
+                <li><a href={{"addEmployee"}}>Add Reportees</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href='/logout'><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="margin-top:50px">
     <h2  style="margin-top:150px; margin-left:300px;">Issues of Reportees</h2>
     <div class="col-sm-6">
   <table class="table table-striped table-dark">
@@ -42,6 +60,7 @@
     @endforeach
 </table>
 <a href="/manager-records">Back To Profile</a>
+</div>
 </div>
 </body>
 </html>
