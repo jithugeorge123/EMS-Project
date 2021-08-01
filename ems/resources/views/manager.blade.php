@@ -3,7 +3,7 @@
  * Author    => Pallavi Shinde
  * Purpose   => This is home screen of Manager.
  *-->
-<html lang="en">
+ <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,7 +63,24 @@
 </head>
 <!--body part -->
 <body>
-    <div style="margin-top:90px; margin-left:10px; color:white; " class="col-sm-4">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Welcome {{session('user_name')}}</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href={{"display"}}>Issues</a></li>
+                <li><a href={{"reportees"}}>Reportees</a></li>
+                <li><a href={{"logCreate"}}>Create Issue</a></li>
+                <li><a href={{"addEmployee"}}>Add Reportees</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href='/logout'><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--<div style="margin-top:90px; margin-left:10px; color:white; " class="col-sm-4">
     <ul >
     <li><span class="glyphicon glyphicon-info-sign"></span><a style=" font-weight: bold; list-style-type: none;font-size: 25px;" href="display">Issues</a></li><br>
     <li><a  href="reportees">Reportees</a></li><br>
@@ -71,11 +88,9 @@
     <li><a  href="addEmployee">Add Reportees</a><br></li><br>
     <li><button  class="btn btn-primary" onclick="window.location.href='/logout'">logout</button></li>
     </ul>
-    </div>
-    <div class="line" class="col-sm-2"></div>
-<div class="col-sm-4" style=" margin-top:50px; margin-left:10px;" >
+    </div>-->
+<div class="container" style="margin-top:50px">
 <h2 style="font-size: 40px; color:#404040">Welcome {{session('user_name')}}</h2>
-<div style="color: #101010;" class="data">
 @foreach ($users as $user)
 <h2>ID  : <span style="color: #F8F8FF;">{{ $user->emp_id }}</span></h2>
 <h2>First Name : <span style="color: #F8F8FF;">{{ $user->emp_first_name }}</span></h2>
@@ -88,7 +103,6 @@
 <h2>Password   : <span style="color: #Ebf6f7;">{{ $user->emp_password }}</span></h2>
 <h2>Edit <a style="color: #Ebf6f7;" href = 'update/{{$user->emp_id }}' class="glyphicon glyphicon-edit"></a></h2>
 @endforeach
-</div>
 </div>
 </body>
 </html>

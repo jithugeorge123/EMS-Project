@@ -47,6 +47,24 @@ hr {
   opacity: 1;  
 } 
 
+.registerbtn2 {  
+  background-color: #4F84F8;  
+  color: white;  
+  padding: 10px;  
+  margin: 8px 0;  
+  border: none;  
+  cursor: pointer;  
+  max-width: 80px;  
+  opacity: 0.9;
+  position: relative;
+  top:20px;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);  
+}  
+.registerbtn2:hover {  
+  opacity: 1;  
+} 
 .pager{
   margin: 0;
   position: relative;
@@ -78,9 +96,11 @@ Communication Address :  {{$emp['emp_comm_address']}}<br> <br>
 City :  {{$emp['emp_city']}}<br> <br> 
 </label>   
 </div>
-<ul class="pager" >
+<!-- <button class="pager" >
                 <li class="previous"><a href='login'>Login</a></li>    
-            </ul>
+        </ul> -->
+
+<button class="registerbtn2" onclick="window.location.href='login';" >Back to Login </button> 
 
 
   
