@@ -20,43 +20,8 @@
         }
         }
         body{
-            background-color: 	#B0B0B0;
+            background-color:#696969;
         }
-        a:visited {
-        color: white;
-        }
-        ul li a:visited {
-        color: white;
-        }
-        a:hover {
-        color: red;
-        }
-
-        ul {
-        list-style-type: none;
-        font-weight: bold;
-        font-size: 19px;
-        }
-        ul li a{
-        list-style-type: none;
-        font-weight: bold;
-        font-size: 25px;
-        }
-        data  h2 span{
-            font-size: 50px;
-            color: black;
-        }
-        .container { position: relative; }
-
-        .line {
-        border-left: 4px solid black;
-        height: 100%;
-        position: absolute;
-        left: 20%;
-        margin-left: -3px;
-        top: 0;
-        }
-
     </style>
 </head>
 <body>
