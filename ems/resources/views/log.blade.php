@@ -1,9 +1,3 @@
-<!--
- * File Name => log
- * Author    => Pallavi Shinde
- * Purpose   => File will display issues of reportees.
- *-->
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,41 +15,7 @@
         }
         }
         body{
-            background-color: 	#B0B0B0;
-        }
-        a:visited {
-        color: white;
-        }
-        ul li a:visited {
-        color: white;
-        }
-        a:hover {
-        color: red;
-        }
-
-        ul {
-        list-style-type: none;
-        font-weight: bold;
-        font-size: 19px;
-        }
-        ul li a{
-        list-style-type: none;
-        font-weight: bold;
-        font-size: 25px;
-        }
-        data  h2 span{
-            font-size: 50px;
-            color: black;
-        }
-        .container { position: relative; }
-
-        .line {
-        border-left: 4px solid black;
-        height: 100%;
-        position: absolute;
-        left: 20%;
-        margin-left: -3px;
-        top: 0;
+            background-color:#696969;
         }
         .box{
             width:1125px;
@@ -80,8 +40,6 @@
                 <li><a href="manager-records">Home</a></li>
                 <li class="active"><a href="#">Issues</a></li>
                 <li><a href={{"reportees"}}>Reportees</a></li>
-                <li><a href={{"logCreate"}}>Create Issue</a></li>
-                <li><a href={{"addEmployee"}}>Add Reportees</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href='/logout'><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -91,7 +49,9 @@
     <div class="container" style="margin-top:50px">
     <div class="container">
         <div class="box">
-            <h1>Issues Of reportees</h1><hr>
+            <h1 style="color:white;">Issues Of Reportees</h1><hr>
+            <a href={{"logCreate/"}} class="btn btn-primary" style="background-color:#4DA8DA">Create Issue</a>
+            <br><br>
             <table class="table table-striped">
                 <thead>
                     <tr>

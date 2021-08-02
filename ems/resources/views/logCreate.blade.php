@@ -19,69 +19,30 @@
         body{
         background-color: blue;
         }
-        }
         body{
-            background-color: 	#B0B0B0;
+            background-color:	#696969;
         }
-        a:visited {
-        color: white;
+        .container{
+            min-height: 100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
         }
-        ul li a:visited {
-        color: white;
-        }
-        a:hover {
-        color: red;
-        }
+        .container form{
+            width:500px;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            background-color:	#DCDCDC;
 
-        ul {
-        list-style-type: none;
-        font-weight: bold;
-        font-size: 19px;
         }
-        ul li a{
-        list-style-type: none;
-        font-weight: bold;
-        font-size: 25px;
-        }
-        data  h2 span{
-            font-size: 50px;
-            color: black;
-        }
-        .container { position: relative; }
-
-        .line {
-        border-left: 4px solid black;
-        height: 100%;
-        position: absolute;
-        left: 20%;
-        margin-left: -3px;
-        top: 0;
-        }
-        .button{
-        top: 500px;
         }
     </style>
     </head>
     <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Welcome {{session('user_name')}}</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="manager-records">Home</a></li>
-                <li ><a href={{"display"}}>Issues</a></li>
-                <li ><a href={{"reportees"}}>Reportees</a></li>
-                <li class="active"><a href="#">Create Issue</a></li>
-                <li><a href={{"addEmployee"}}>Add Reportees</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href='/logout'><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-            </ul>
-        </div>
-    </nav>
     <div class="container" style="margin-top:50px">
-    <h1 style="margin-top:140px; margin-left:310px;">Create  Issue</h1>
+    <h1 style="margin-top:140px; margin-left:310px; color:white">Create  Issue</h1>
     <div class="col-sm-6" style="margin-top:40px; margin-left:300px;">
     @if(Session::has('success'))
     <div class="alert alert-success">
@@ -92,15 +53,17 @@
     @csrf
     <label>Employee ID: {{session('user')}}</label>
     <input  type="hidden" name="emp_id" value ="{{session('user')}}" placeholder="id" class="form-control" ><br>
-    <label>Issue Title</label>
+    <label>Enter Issue Title</label>
     <input type="text" name="issue_title" placeholder="Laptop" class="form-control"><br>
     <span class="text-danger">@error('issue_title'){{$message}}@enderror</span><br>
-    <label>Issue Description</label>
+    <label>Enter Issue Description</label>
     <input type="text" name="issue_desc" placeholder="Not able to login" class="form-control"><br>
     <span class="text-danger">@error('issue_desc'){{$message}}@enderror</span><br>
     <button type="submit" class="btn btn-primary">Submit</button>
-
 </form>
+<ul class="pager">
+            <li class="previous"><a href={{"/display"}}>Back</a></li>
+    </ul>
 </div>
 </div>
 </body>

@@ -22,7 +22,6 @@
         }
         body{
             background-color:#696969;
-            color:white;
         }
 
     </style>
@@ -37,8 +36,6 @@
                 <li><a href="manager-records">Home</a></li>
                 <li ><a href="display">Issues</a></li>
                 <li ><a href="reportees">Reportees</a></li>
-                <li ><a href="logCreate">Create Issue</a></li>
-                <li class="active"><a href="#">Add Reportees</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href='/logout'><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -60,6 +57,9 @@
     <span class="text-danger">@error('proj_id'){{$message}}@enderror</span><br>
     <button type="submit" class="btn btn-primary" class="button">Submit</button>
 </form>
+<ul class="pager">
+            <li class="previous"><a href={{"/reportees"}}>Back</a></li>
+    </ul>
 </div>
 </div>
 </body>
