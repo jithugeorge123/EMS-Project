@@ -52,7 +52,7 @@ hr {
 <form method="POST" action= "register">  
 @csrf
   <div class="container">  
-  <center>  <h1> Employee Registeration Form</h1> </center>  
+  <center>  <h1> Employee Registration Form</h1> </center>  
   <hr>  
   <label> Firstname </label>   
 <input type="text" name="firstname" placeholder= "Firstname" size="15" required />    

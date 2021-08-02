@@ -22,6 +22,7 @@
         }
         body{
             background-color:#696969;
+            color: white;
         }
 
 

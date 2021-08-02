@@ -22,6 +22,7 @@
         }
         body{
             background-color:#696969;
+            color: white;
         }
 
     </style>
@@ -45,7 +46,7 @@
     <div class="container" style="margin-top:50px">
     <h1 style="margin-top:170px; margin-left:310px; color:white;">Add Reportees</h1>
     <div class="col-sm-6" style="margin-top:40px; margin-left:300px;">
-    <form action = "addemp" method="POST" class="form-group" >
+    <form action = "/addemp" method="POST" class="form-group" >
     @csrf
     <label>Manager ID : {{session('user')}}</label>
     <input type="hidden" name="manager_id" value= "{{session('user')}}" placeholder="manager id" class="form-control"><br>

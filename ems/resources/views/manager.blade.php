@@ -43,7 +43,7 @@
         </div>
     </nav>
 <div class="container" style="margin-top:50px">
-<h2 style="font-size: 40px; color:white">Welcome {{session('user_name')}}</h2>
+<h2 style="font-size: 40px; color:white">EMPLOYEE DETAILS</h2>
 @foreach ($users as $user)
 <h2 style="color:white">ID  : <span style="color: #800000;">{{ $user->emp_id }}</span></h2>
 <h2 style="color:white">First Name : <span style="color: #800000;">{{ $user->emp_first_name }}</span></h2>

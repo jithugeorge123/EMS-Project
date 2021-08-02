@@ -5,6 +5,19 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style type="text/css">
+
+@media screen and (max-width: 600px) {
+    .box{
+    padding:10px;   
+    max-width:400px;
+    margin:100px auto;
+    border:2px solid;
+    border-color: blue;
+    background-color: lightgrey;
+
+   }
+}
+ 
    .box{
     padding:10px;   
     width:600px;
@@ -47,7 +60,7 @@
    <form action="forgotPass" method= "POST" >
    @csrf
     <div class="form-group">
-     <label>Enter Employee Id</label>
+     <label>Employee Id:</label>
      <input type="text" name="empId" class="form-control" >
     </div>
     <!-- <div class="form-group">

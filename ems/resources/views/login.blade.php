@@ -6,6 +6,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style type="text/css">
   
+  @media screen and (max-width: 600px) {
+    .box{
+    padding:10px;   
+    max-width:400px;
+    margin:100px auto;
+    border:2px solid;
+    border-color: blue;
+    background-color: lightgrey;
+
+   }
+}
    .box{
     padding:10px;   
     width:600px;
@@ -20,6 +31,7 @@
      font-family: Calibri, Helvetica, sans-serif;  
      background-color: #333;  
 }
+
 
 
 
@@ -48,12 +60,12 @@
    <!-- {{ csrf_field() }} -->
    @csrf
     <div class="form-group">
-     <label>Enter Employee Id</label>
+     <label>Employee Id:</label>
      <input type="text" name="user" class="form-control" placeholder="Employee ID" >
      <span style= "color:red">@error('user'){{$message}}@enderror</span>
     </div>
     <div class="form-group">
-     <label>Enter Password</label>
+     <label>Password:</label>
      <input type="password" name="password" class="form-control" placeholder="Password">
      <span style= "color:red">@error('password'){{$message}}@enderror</span>
     </div>
