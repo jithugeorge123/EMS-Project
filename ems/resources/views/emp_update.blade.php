@@ -20,7 +20,7 @@
         }
         }
         body{
-            background-color:#696969;
+            background-color:#D3D3D3;
         }
     </style>
 </head>

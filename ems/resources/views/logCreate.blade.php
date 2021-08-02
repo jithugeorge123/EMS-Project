@@ -20,7 +20,7 @@
         background-color: blue;
         }}
         body{
-            background-color:#696969;
+            background-color:#D3D3D3;
         }
         .container{
             min-height: 100vh;
@@ -34,7 +34,7 @@
             padding:20px;
             border-radius:10px;
             box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-            background-color:	#DCDCDC;
+            background-color:	#00b3b3;
 
         }
         }
@@ -42,14 +42,14 @@
     </head>
     <body>
     <div class="container" style="margin-top:50px">
-    <h1 style="margin-top:140px; margin-left:310px; color:white">Create  Issue</h1>
+    <h1 style="margin-top:140px; margin-left:310px; color:#800000">Create  Issue</h1>
     <div class="col-sm-6" style="margin-top:40px; margin-left:300px;">
     @if(Session::has('success'))
     <div class="alert alert-success">
         {{ session()->get('success') }}
     </div>
     @endif
-<form action="insertRecord" method="POST" class="form-group">
+<form action="/insertRecord" method="POST" class="form-group">
     @csrf
     <label>Employee ID: {{session('user')}}</label>
     <input  type="hidden" name="emp_id" value ="{{session('user')}}" placeholder="id" class="form-control" ><br>

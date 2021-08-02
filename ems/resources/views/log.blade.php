@@ -15,7 +15,7 @@
         }
         }
         body{
-            background-color:#696969;
+            background-color:#D3D3D3;
         }
         .box{
             width:1125px;
@@ -25,7 +25,7 @@
             border:5px;
             border-radius:10px;
             box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-            background-color:#DCDCDC;
+            background-color:#00b3b3;
             color:black;
         }
     </style>
@@ -49,7 +49,7 @@
     <div class="container" style="margin-top:50px">
     <div class="container">
         <div class="box">
-            <h1 style="color:white;">Issues Of Reportees</h1><hr>
+            <h1 style="color: #800000;">Issues Of Reportees</h1><hr>
             <a href={{"logCreate/"}} class="btn btn-primary" style="background-color:#4DA8DA">Create Issue</a>
             <br><br>
             <table class="table table-striped">
