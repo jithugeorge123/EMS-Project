@@ -5,13 +5,15 @@
 <style>  
 body{  
   font-family: Calibri, Helvetica, sans-serif;  
-  background-color: #333;  
+  /* background-color: #333;   */
+  background-color: #DCDCDC;
 }  
 .container {  
     margin:  0 auto;
     max-width: 540px;
     padding: 20px 80px 20px 60px;  
-    background-color: lightgrey;  
+    /* background-color: lightgrey;   */
+    background-color:  #00b3b3; 
 }  
   
 input[type=text], input[type=password], textarea {  
@@ -34,7 +36,7 @@ hr {
   margin-bottom: 25px;  
 }  
 .registerbtn {  
-  background-color: #4CAF50;  
+  background-color:   #1a75ff;  
   color: white;  
   padding: 16px 20px;  
   margin: 8px 0;  
@@ -52,7 +54,7 @@ hr {
 <form method="POST" action= "register">  
 @csrf
   <div class="container">  
-  <center>  <h1> Employee Registration Form</h1> </center>  
+  <center>  <h1 style="color: #800000;"> Employee Registration Form</h1> </center>  
   <hr>  
   <label> Firstname </label>   
 <input type="text" name="firstname" placeholder= "Firstname" size="15" required />    

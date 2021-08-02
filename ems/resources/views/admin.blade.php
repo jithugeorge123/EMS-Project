@@ -41,7 +41,7 @@
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href={{"employees_details"}}>Employee Details</a></li>
+                <li><a href={{"employees_details"}}>Welcome {{session('user_name')}}</a></li>
                 <li><a href={{"projects"}}>Project Details</a></li>
                 <li><a href={{"log_issues"}}>Log Issues</a></li>
                 <li><a href={{"search"}}>Search<span class="glyphicon glyphicon-search"></span></a></li>

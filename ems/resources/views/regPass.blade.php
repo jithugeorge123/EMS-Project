@@ -5,15 +5,17 @@
 <style>  
 body{  
   font-family: Calibri, Helvetica, sans-serif;  
-  background-color: #333;  
+  /* background-color: #333;   */
+  background-color: #DCDCDC;
 }  
 .container {  
     margin:  0 auto;
     max-width: 540px;
     padding: 20px 80px 20px 60px;  
-    background-color: lightgrey;  
+    /* background-color: lightgrey;   */
+    background-color:  #00b3b3; 
 }  
-
+  
 input[type=text], input[type=password], textarea {  
   width: 100%;  
   padding: 15px;  
@@ -34,7 +36,7 @@ hr {
   margin-bottom: 25px;  
 }  
 .registerbtn {  
-  background-color: #4CAF50;  
+  background-color:   #1a75ff;  
   color: white;  
   padding: 16px 20px;  
   margin: 8px 0;  
@@ -45,7 +47,7 @@ hr {
 }  
 .registerbtn:hover {  
   opacity: 1;  
-} 
+}  
 
 .registerbtn2 {  
   background-color: #4F84F8;  
