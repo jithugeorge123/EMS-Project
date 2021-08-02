@@ -22,14 +22,17 @@
     width:600px;
     margin:100px auto;
     border:2px solid;
-    border-color: blue;
-    background-color: lightgrey;
+    /* border-color: blue; */
+    /* background-color:  #80dfff; */
+    background-color:  #00b3b3; 
 
    }
 
    body{  
      font-family: Calibri, Helvetica, sans-serif;  
-     background-color: #333;  
+     /* background-color: #333;   */
+     background-color: #DCDCDC;
+     /* background-color:  #00b3b3; */
 }
 
 
@@ -77,7 +80,7 @@
         <span style= "color:red"> {{session('message')}} </span>
     @endif
    </form>
-   <a class="btn" href="{{ url('/register') }}">Register Here</a>
-   <a class="btn" href='/forgotPass'>Forgot Password ?</a>
+   <a  style= "color:black" class="btn" href="{{ url('/register') }}">Register Here</a>
+   <a style= "color:black" class="btn" href='/forgotPass'>Forgot Password ?</a>
   </div>
  </body>

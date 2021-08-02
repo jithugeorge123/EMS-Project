@@ -15,7 +15,8 @@
             }
         }
         body{
-            background-color:#696969;
+            /* background-color:#696969; */
+            background-color: #D3D3D3;
             color:white;
         }
         .box{
@@ -26,7 +27,8 @@
             border:5px;
             border-radius:10px;
             box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-            background-color:#DCDCDC;
+            /* background-color:#DCDCDC; */
+            background-color:  #00b3b3;
             color:black;
         }
     </style>
@@ -51,7 +53,7 @@
     </nav>
     <div class="container" style="margin-top:50px">
         <div class="box">
-            <h3>Registered Employee Names</h3>
+            <h3 style="color: #800000;">Registered Employee Names</h3>
             <hr>
             <table class="table table-striped">
                 <thead>
