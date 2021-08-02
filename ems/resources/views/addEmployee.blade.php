@@ -1,5 +1,10 @@
+<!--
+ * File Name => addEmployee
+ * Author    => Pallavi Shinde
+ * Purpose   => File will add employees.
+ *-->
 
-<html lang="en">
+ <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,25 +15,74 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Document</title>
     <style>
-        .body,html{
-            background-color: gray;
+        @media only screen and (max-width: 200px){
+        body{
+        background-color: blue;
         }
-        .container{
-            background-color: lightgray;
-            height: 1000px;
-            width: 1000px;
         }
-        div{
-            top: 11%;
-            left: 300px;
+        body{
+            background-color: 	#B0B0B0;
+        }
+        a:visited {
+        color: white;
+        }
+        ul li a:visited {
+        color: white;
+        }
+        a:hover {
+        color: red;
         }
 
+        ul {
+        list-style-type: none;
+        font-weight: bold;
+        font-size: 19px;
+        }
+        ul li a{
+        list-style-type: none;
+        font-weight: bold;
+        font-size: 25px;
+        }
+        data  h2 span{
+            font-size: 50px;
+            color: black;
+        }
+        .container { position: relative; }
+
+        .line {
+        border-left: 4px solid black;
+        height: 100%;
+        position: absolute;
+        left: 20%;
+        margin-left: -3px;
+        top: 0;
+        }
+.button{
+    top: 500px;
+}
     </style>
 </head>
 <body>
-    <body class="container">
-    <h1 style="margin-top:150px; margin-left:310px;">Add Reportees</h1>
-    <div class="col-sm-4">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Welcome {{session('user_name')}}</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="manager-records">Home</a></li>
+                <li ><a href="display">Issues</a></li>
+                <li ><a href="reportees">Reportees</a></li>
+                <li ><a href="logCreate">Create Issue</a></li>
+                <li class="active"><a href="#">Add Reportees</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href='/logout'><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="margin-top:50px">
+    <h1 style="margin-top:170px; margin-left:310px;">Add Reportees</h1>
+    <div class="col-sm-6" style="margin-top:40px; margin-left:300px;">
     <form action = "addemp" method="POST" class="form-group" >
     @csrf
     <label>Manager ID : {{session('user')}}</label>
@@ -36,13 +90,12 @@
     <label>Employee ID</label>
     <input type="text" name="emp_id"  placeholder="1" class="form-control"  >
     <span class="text-danger">@error('emp_id'){{$message}}@enderror</span><br>
-    <label>Enter Project ID</label>
+    <label>Project ID</label>
     <input type="text" name="proj_id" placeholder="project id" class="form-control">
     <span class="text-danger">@error('proj_id'){{$message}}@enderror</span><br>
-
-    <button type="submit" class="btn btn-primary" class="button">submit</button>
-    <a href="/manager-records">Back To Profile</a>
+    <button type="submit" class="btn btn-primary" class="button">Submit</button>
 </form>
+</div>
 </div>
 </body>
 

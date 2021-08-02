@@ -4,7 +4,7 @@
  * Purpose   => File will update the mobile number and address of manager.
  *-->
 
-<html lang="en">
+ <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,20 +15,56 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Employee Management</title>
     <style>
-        .body,html{
-            background-color: gray;
+        @media only screen and (max-width: 200px){
+        body{
+        background-color: blue;
         }
-        #up{
-            top: 32%;
-            left: 32%;
         }
-        .container{
-            background-color: lightgray;
+        body{
+            background-color: 	#B0B0B0;
         }
+        a:visited {
+        color: white;
+        }
+        ul li a:visited {
+        color: white;
+        }
+        a:hover {
+        color: red;
+        }
+
+        ul {
+        list-style-type: none;
+        font-weight: bold;
+        font-size: 19px;
+        }
+        ul li a{
+        list-style-type: none;
+        font-weight: bold;
+        font-size: 25px;
+        }
+        data  h2 span{
+            font-size: 50px;
+            color: black;
+        }
+        .container { position: relative; }
+
+        .line {
+        border-left: 4px solid black;
+        height: 100%;
+        position: absolute;
+        left: 20%;
+        margin-left: -3px;
+        top: 0;
+        }
+.button{
+    top: 500px;
+}
     </style>
 </head>
-<body class="container">
-    <div class="col-sm-4" id="up">
+<body>
+<div class="container" style="margin-top:250px">
+<div class="col-sm-6" style="margin-top:70px; margin-left:300px;">
 <form action = "/update/<?php echo $users[0]->emp_id; ?>" method = "post">
 <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 <table class="table table-striped table-dark">
@@ -49,13 +85,12 @@ value = '<?php echo $users[0]->emp_comm_address; ?>'/>
 <tr>
 <td colspan = '2'>
 <button type="submit" class="btn btn-primary">Update Details</button>
-
 </td>
 </tr>
 </table>
 </form>
-<a href="/manager-records">Back To Profile</a>
+<button class="btn btn-primary"><a href="/manager-records">Back To Home</a></button>
 </div>
-
+</div>
 </body>
 </html>

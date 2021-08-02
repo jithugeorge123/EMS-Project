@@ -80,28 +80,19 @@
             </ul>
         </div>
     </nav>
-    <!--<div style="margin-top:90px; margin-left:10px; color:white; " class="col-sm-4">
-    <ul >
-    <li><span class="glyphicon glyphicon-info-sign"></span><a style=" font-weight: bold; list-style-type: none;font-size: 25px;" href="display">Issues</a></li><br>
-    <li><a  href="reportees">Reportees</a></li><br>
-    <li><a  href="logCreate">Create Issue</a></li><br>
-    <li><a  href="addEmployee">Add Reportees</a><br></li><br>
-    <li><button  class="btn btn-primary" onclick="window.location.href='/logout'">logout</button></li>
-    </ul>
-    </div>-->
 <div class="container" style="margin-top:50px">
 <h2 style="font-size: 40px; color:#404040">Welcome {{session('user_name')}}</h2>
 @foreach ($users as $user)
-<h2>ID  : <span style="color: #F8F8FF;">{{ $user->emp_id }}</span></h2>
-<h2>First Name : <span style="color: #F8F8FF;">{{ $user->emp_first_name }}</span></h2>
-<h2>Last Name : <span style="color: #F8F8FF;">{{ $user->emp_last_name }}</span></h2>
-<h2>Mobile No  : <span style="color: #F8F8FF;">{{ $user->emp_mobile_no }}</span></h2>
-<h2>Date Of Birth  : <span style="color: #F8F8FF;">{{ $user->emp_dob }}</span></h2>
-<h2>Genger  : <span style="color: #F8F8FF;">{{ $user->emp_gender }}</span></h2>
-<h2>Address  : <span style="color: #Ebf6f7;">{{ $user->emp_comm_address }}</span></h2>
-<h2>City   : <span style="color: #Ebf6f7;">{{ $user->emp_city }}</span></h2>
-<h2>Password   : <span style="color: #Ebf6f7;">{{ $user->emp_password }}</span></h2>
-<h2>Edit <a style="color: #Ebf6f7;" href = 'update/{{$user->emp_id }}' class="glyphicon glyphicon-edit"></a></h2>
+<h2>ID  : <span style="color: #800000;">{{ $user->emp_id }}</span></h2>
+<h2>First Name : <span style="color: #800000;">{{ $user->emp_first_name }}</span></h2>
+<h2>Last Name : <span style="color: #800000;">{{ $user->emp_last_name }}</span></h2>
+<h2>Mobile No  : <span style="color: #800000;">{{ $user->emp_mobile_no }}</span></h2>
+<h2>Date Of Birth  : <span style="color: #800000;">{{ $user->emp_dob }}</span></h2>
+<h2>Genger  : <span style="color: #800000;">{{ $user->emp_gender }}</span></h2>
+<h2>Address  : <span style="color: #800000;">{{ $user->emp_comm_address }}</span></h2>
+<h2>City   : <span style="color: #800000;">{{ $user->emp_city }}</span></h2>
+<h2>Password   : <span style="color: #800000;">{{ $user->emp_password }}</span></h2>
+<h2>Edit <a style="color: #800000;" href = 'update/{{$user->emp_id }}' class="glyphicon glyphicon-edit"></a></h2>
 @endforeach
 </div>
 </body>

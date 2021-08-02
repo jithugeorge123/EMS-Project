@@ -1,3 +1,9 @@
+<!--
+ * File Name => reportees
+ * Author    => Pallavi Shinde
+ * Purpose   => File will show all reportees details.
+ *-->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,52 +15,118 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Document</title>
     <style>
+        @media only screen and (max-width: 200px){
+        body{
+        background-color: blue;
+        }
+        }
+        body{
+            background-color: 	#B0B0B0;
+        }
+        a:visited {
+        color: white;
+        }
+        ul li a:visited {
+        color: white;
+        }
+        a:hover {
+        color: red;
+        }
 
-        .body,html{
-            background-color: gray;
+        ul {
+        list-style-type: none;
+        font-weight: bold;
+        font-size: 19px;
         }
-        .container{
-            background-color: lightgray;
+        ul li a{
+        list-style-type: none;
+        font-weight: bold;
+        font-size: 25px;
         }
-        div{
-            top: 10%;
-            left: 16%;
+        data  h2 span{
+            font-size: 50px;
+            color: black;
+        }
+        .container { position: relative; }
+
+        .line {
+        border-left: 4px solid black;
+        height: 100%;
+        position: absolute;
+        left: 20%;
+        margin-left: -3px;
+        top: 0;
+        }
+        .button{
+        top: 500px;
+        }
+        .box{
+            width:1125px;
+        }
+        .container table{
+            padding:20px;
+            border:5px;
+            border-radius:10px;
+            box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            background-color:#DCDCDC;
+            color:black;
         }
     </style>
 </head>
-<body class="container">
-    <center>
-<h3 style="margin-top:150px; margin-left:1px;">Reportees</h3>
-</center>
-<div class="col-sm-8">
-<table class="table table-striped table-dark">
-<tr>
-<td>ID</td>
-<td>First Name</td>
-<td>Last Name</td>
-<td>Mobile No</td>
-<td>DOB</td>
-<td>Gender</td>
-<td>Address</td>
-<td>City</td>
-<td>Delete</td>
-</tr>
-@foreach ($data as $emp)
-<tr>
-<td>{{ $emp->emp_id }}</td>
-<td>{{ $emp->emp_first_name }}</td>
-<td>{{ $emp->emp_last_name }}</td>
-<td>{{ $emp->emp_mobile_no }}</td>
-<td>{{ $emp->emp_dob }}</td>
-<td>{{ $emp->emp_gender }}</td>
-<td>{{ $emp->emp_comm_address }}</td>
-<td>{{ $emp->emp_city}}</td>
-<td><a href ={{"delete/".$emp->emp_id}}>Delete</a></td>
-</tr>
-@endforeach
-</table>
-<a href="/manager-records">Back To Profile</a>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Welcome {{session('user_name')}}</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="manager-records">Home</a></li>
+                <li ><a href="display">Issues</a></li>
+                <li class="active"><a href="#">Reportees</a></li>
+                <li><a href={{"logCreate"}}>Create Issue</a></li>
+                <li><a href={{"addEmployee"}}>Add Reportees</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href='/logout'><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="margin-top:50px">
+<div class="container">
+        <div class="box">
+            <h1>Reportees</h1><hr>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Mobile No</th>
+                        <th scope="col">DOB</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach ($data as $emp)
+                    <tr>
+                    <td>{{ $emp->emp_id }}</td>
+                    <td>{{ $emp->emp_first_name }}</td>
+                    <td>{{ $emp->emp_last_name }}</td>
+                    <td>{{ $emp->emp_mobile_no }}</td>
+                    <td>{{ $emp->emp_dob }}</td>
+                    <td>{{ $emp->emp_gender }}</td>
+                    <td>{{ $emp->emp_comm_address }}</td>
+                    <td>{{ $emp->emp_city}}</td>
+                    <td><button class="btn btn-primary"><a href ={{"delete/".$emp->emp_id}}>Delete</a></button></td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-
 </body>
 </html>

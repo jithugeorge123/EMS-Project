@@ -1,3 +1,9 @@
+<!--
+ * File Name => log
+ * Author    => Pallavi Shinde
+ * Purpose   => File will display issues of reportees.
+ *-->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,24 +15,66 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Document</title>
     <style>
-        .body,html{
-            background-color: gray;
+        @media only screen and (max-width: 200px){
+        body{
+        background-color: blue;
         }
-        .container{
-            background-color: lightgray;
         }
-        div{
-            top: 10%;
-            left: 25%;
+        body{
+            background-color: 	#B0B0B0;
+        }
+        a:visited {
+        color: white;
+        }
+        ul li a:visited {
+        color: white;
+        }
+        a:hover {
+        color: red;
         }
 
+        ul {
+        list-style-type: none;
+        font-weight: bold;
+        font-size: 19px;
+        }
+        ul li a{
+        list-style-type: none;
+        font-weight: bold;
+        font-size: 25px;
+        }
+        data  h2 span{
+            font-size: 50px;
+            color: black;
+        }
+        .container { position: relative; }
+
+        .line {
+        border-left: 4px solid black;
+        height: 100%;
+        position: absolute;
+        left: 20%;
+        margin-left: -3px;
+        top: 0;
+        }
+        .box{
+            width:1125px;
+        }
+        .container table{
+            padding:20px;
+            border:5px;
+            border-radius:10px;
+            box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            background-color:#DCDCDC;
+            color:black;
+        }
     </style>
     </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Welcome {{session('emp_first_name')}}</a>
+                <a class="navbar-brand" href="#">Welcome {{session('user_name')}}</a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="manager-records">Home</a></li>
@@ -41,26 +89,31 @@
         </div>
     </nav>
     <div class="container" style="margin-top:50px">
-    <h2  style="margin-top:150px; margin-left:300px;">Issues of Reportees</h2>
-    <div class="col-sm-6">
-  <table class="table table-striped table-dark">
-    <tr>
-        <td>Log ID</td>
-        <td>Employee ID</td>
-        <td>Issue Type</td>
-        <td>Issue Description</td>
-    </tr>
-    @foreach ($logs as $dat)
-    <tr>
-        <td>{{$dat->log_id}}</td>
-        <td>{{$dat->emp_id}}</td>
-        <td>{{$dat->issue_title}}</td>
-        <td>{{$dat->issue_desc}}</td>
-    </tr>
-    @endforeach
-</table>
-<a href="/manager-records">Back To Profile</a>
-</div>
+    <div class="container">
+        <div class="box">
+            <h1>Issues Of reportees</h1><hr>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Log Id</th>
+                        <th scope="col">Employee ID</th>
+                        <th scope="col">Issue Type</th>
+                        <th scope="col">Issue Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach ($logs as $dat)
+                 <tr>
+                    <td>{{$dat->log_id}}</td>
+                    <td>{{$dat->emp_id}}</td>
+                    <td>{{$dat->issue_title}}</td>
+                     <td>{{$dat->issue_desc}}</td>
+                </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 </body>
 </html>

@@ -89,6 +89,7 @@ class ManagerController extends Controller
         $data = DB::table('emp_proj')
             ->where('emp_id', $id);
         $data->delete();
+        return redirect('reportees');
         //return "Record deleted successfully";
 
     } //display the issues of reportees
