@@ -46,8 +46,6 @@
 <h2 style="font-size: 40px; color:white">EMPLOYEE DETAILS</h2>
 @foreach ($users as $user)
 <h2 style="color:white">ID  : <span style="color: #800000;">{{ $user->emp_id }}</span></h2>
-<h2 style="color:white">First Name : <span style="color: #800000;">{{ $user->emp_first_name }}</span></h2>
-<h2 style="color:white">Last Name : <span style="color: #800000;">{{ $user->emp_last_name }}</span></h2>
 <h2 style="color:white">Mobile No  : <span style="color: #800000;">{{ $user->emp_mobile_no }}</span></h2>
 <h2 style="color:white">Date Of Birth  : <span style="color: #800000;">{{ $user->emp_dob }}</span></h2>
 <h2 style="color:white">Genger  : <span style="color: #800000;">{{ $user->emp_gender }}</span></h2>
