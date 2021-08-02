@@ -20,42 +20,9 @@
         }
         }
         body{
-            background-color: 	#B0B0B0;
-        }
-        a:visited {
-        color: white;
-        }
-        ul li a:visited {
-        color: white;
-        }
-        a:hover {
-        color: red;
+            background-color:#696969;
         }
 
-        ul {
-        list-style-type: none;
-        font-weight: bold;
-        font-size: 19px;
-        }
-        ul li a{
-        list-style-type: none;
-        font-weight: bold;
-        font-size: 25px;
-        }
-        data  h2 span{
-            font-size: 50px;
-            color: black;
-        }
-        .container { position: relative; }
-
-        .line {
-        border-left: 4px solid black;
-        height: 100%;
-        position: absolute;
-        left: 20%;
-        margin-left: -3px;
-        top: 0;
-        }
 
     </style>
 </head>
@@ -76,19 +43,19 @@
         </div>
     </nav>
 <div class="container" style="margin-top:50px">
-<h2 style="font-size: 40px; color:#404040">Welcome  {{session('user_name')}}</h2>
+<h2 style="font-size: 40px; color:white;">Welcome  {{session('user_name')}}</h2>
 <div style="color: #101010;" class="data">
 @foreach ($users as $user)
-<h2>ID  : <span style="color: #800000;">{{ $user->emp_id }}</span></h2>
-<h2>First Name : <span style="color: #800000;">{{ $user->emp_first_name }}</span></h2>
-<h2>Last Name : <span style="color: #800000;">{{ $user->emp_last_name }}</span></h2>
-<h2>Mobile No  : <span style="color: #800000;">{{ $user->emp_mobile_no }}</span></h2>
-<h2>Date Of Birth  : <span style="color: #800000;">{{ $user->emp_dob }}</span></h2>
-<h2>Genger  : <span style="color: #800000;">{{ $user->emp_gender }}</span></h2>
-<h2>Address  : <span style="color: #800000;">{{ $user->emp_comm_address }}</span></h2>
-<h2>City   : <span style="color: #800000;">{{ $user->emp_city }}</span></h2>
-<h2>Password   : <span style="color: #800000;">{{ $user->emp_password }}</span></h2>
-<h2>Edit <a style="color: #800000;" href = 'edit/{{$user->emp_id }}' class="glyphicon glyphicon-edit"></a></h2>
+<h2 style="color:white;">ID  : <span style="color: #800000;">{{ $user->emp_id }}</span></h2>
+<h2 style="color:white;">First Name : <span style="color: #800000;">{{ $user->emp_first_name }}</span></h2>
+<h2 style="color:white;">Last Name : <span style="color: #800000;">{{ $user->emp_last_name }}</span></h2>
+<h2 style="color:white;">Mobile No  : <span style="color: #800000;">{{ $user->emp_mobile_no }}</span></h2>
+<h2 style="color:white;">Date Of Birth  : <span style="color: #800000;">{{ $user->emp_dob }}</span></h2>
+<h2 style="color:white;">Genger  : <span style="color: #800000;">{{ $user->emp_gender }}</span></h2>
+<h2 style="color:white;">Address  : <span style="color: #800000;">{{ $user->emp_comm_address }}</span></h2>
+<h2 style="color:white;">City   : <span style="color: #800000;">{{ $user->emp_city }}</span></h2>
+<h2 style="color:white;">Password   : <span style="color: #800000;">{{ $user->emp_password }}</span></h2>
+<h2 style="color:white;">Edit <a style="color: #800000;" href = 'edit/{{$user->emp_id }}' class="glyphicon glyphicon-edit"></a></h2>
 @endforeach
 </div>
 </div>
