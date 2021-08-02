@@ -9,6 +9,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
+        @media only screen and (max-width: 120px){
+            body{
+        
+            }
+        }
         body{
             background-color:	#696969;
             color:white;
@@ -54,10 +59,10 @@
                     <tr>
                         <th scope="col">Log Id</th>
                         <th scope="col">Employee Id</th>
-                        <th scope="col">Issue Relation</th>
+                        <th scope="col">Issue Title</th>
                         <th scope="col">Issue</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Operations</th>
+                        
                     </tr>
                 </thead>
                 <tbody>

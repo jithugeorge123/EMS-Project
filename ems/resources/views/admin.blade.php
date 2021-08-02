@@ -9,6 +9,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Home</title>
     <style>
+        @media only screen and (max-width: 120px){
+            body{
+        
+            }
+        }
         body{
             background-color:#696969;
             color:white;
@@ -59,7 +64,7 @@
                     @foreach($employees as $employee)
                     <tr>
                         <td>{{$employee['emp_id']}}</td>
-                        <td><a href={{"employee_details/".$employee['emp_id']}} style="color:black;">{{$employee['emp_first_name'].$employee['emp_last_name']}}</a></td>
+                        <td><a href={{"employee_details/".$employee['emp_id']}} style="color:black;">{{$employee['emp_first_name']." ".$employee['emp_last_name']}}</a></td>
                     </tr>
                     @endforeach
                 </tbody>
