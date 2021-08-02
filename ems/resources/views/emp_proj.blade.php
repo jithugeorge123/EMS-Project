@@ -33,11 +33,12 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Project Id</th>
-                        <th scope="col">Project Name</th>
-                        <th scope="col">Project Desc</th>
-                        <th scope="col">Project Start Date</th>
-                        <th scope="col">Project End Date</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">End Date</th>
+                    
                     </tr>
                 </thead>
                 <tbody>

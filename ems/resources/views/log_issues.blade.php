@@ -57,10 +57,10 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Log Id</th>
+                        <th scope="col">Id</th>
                         <th scope="col">Employee Id</th>
                         <th scope="col">Issue Title</th>
-                        <th scope="col">Issue Description</th>
+                        <th scope="col">Description</th>
                         <th scope="col">Status</th>
                         
                     </tr>

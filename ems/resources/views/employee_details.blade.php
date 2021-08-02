@@ -33,16 +33,16 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Emp Id</th>
-                        <th scope="col">Emp First Name</th>
-                        <th scope="col">Emp Last Name</th>
-                        <th scope="col">Emp Mobile No</th>
-                        <th scope="col">Emp DOB</th>
-                        <th scope="col">Emp Gender</th>
-                        <th scope="col">Emp Address</th>
-                        <th scope="col">Emp City</th>
-                        <th scope="col">Emp Type</th>
-                        <th scope="col">Emp Password</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Mobile No</th>
+                        <th scope="col">DOB</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Type</th>
+                        <th scop="col">Password</th>
+            
                     </tr>
                 </thead>
                 <tbody>
