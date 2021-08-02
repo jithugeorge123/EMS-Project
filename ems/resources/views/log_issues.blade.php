@@ -60,7 +60,7 @@
                         <th scope="col">Log Id</th>
                         <th scope="col">Employee Id</th>
                         <th scope="col">Issue Title</th>
-                        <th scope="col">Issue</th>
+                        <th scope="col">Issue Description</th>
                         <th scope="col">Status</th>
                         
                     </tr>
