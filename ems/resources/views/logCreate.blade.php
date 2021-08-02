@@ -18,13 +18,13 @@
         @media only screen and (max-width: 200px){
         body{
         background-color: blue;
-        }
+        }}
         body{
-            background-color:	#696969;
+            background-color:#696969;
         }
         .container{
             min-height: 100vh;
-            display:flex;
+            display:relative;
             justify-content:center;
             align-items:center;
             flex-direction:column;

@@ -38,8 +38,7 @@ class changeUser extends Command
      */
     public function handle()
     {
-        echo "hi \n";
-           $chang_id= readline("\n enter the Employee Id for changing the type:  ");
+           $chang_id= readline("Enter the Employee Id for changing the type:  ");
            $emp=employee::find(intval($chang_id)); 
            if(!$emp){
                echo "\n Wrong Employee ID ";
