@@ -43,7 +43,7 @@
         </div>
     </nav>
     <div class="container" style="margin-top:50px">
-    <h1 style="margin-top:170px; margin-left:310px;">Add Reportees</h1>
+    <h1 style="margin-top:170px; margin-left:310px; color:white;">Add Reportees</h1>
     <div class="col-sm-6" style="margin-top:40px; margin-left:300px;">
     <form action = "addemp" method="POST" class="form-group" >
     @csrf
