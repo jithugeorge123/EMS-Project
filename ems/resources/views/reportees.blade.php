@@ -78,7 +78,7 @@
                     <td>{{ $emp->emp_gender }}</td>
                     <td>{{ $emp->emp_comm_address }}</td>
                     <td>{{ $emp->emp_city}}</td>
-                    <td><button class="btn btn-primary"><a href ={{"delete/".$emp->emp_id}}>Delete</a></button></td>
+                    <td><a class="btn btn-primary" href ={{"delete/".$emp->emp_id}}>Delete</a></td>
                     </tr>
                     @endforeach
                 </tbody>
