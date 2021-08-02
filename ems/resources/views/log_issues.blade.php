@@ -62,7 +62,7 @@
                         <th scope="col">Issue Title</th>
                         <th scope="col">Issue</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Operations</th>
+                        
                     </tr>
                 </thead>
                 <tbody>

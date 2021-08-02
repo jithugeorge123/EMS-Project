@@ -61,7 +61,7 @@
                         <th scope="col">Project Description</th>
                         <th scope="col">Project Start Date</th>
                         <th scope="col">Project End Date</th>
-                        <th scope="col">Operations</th>
+                    
                     </tr>
                 </thead>
                 <tbody>

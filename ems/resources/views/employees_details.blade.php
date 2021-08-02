@@ -65,7 +65,7 @@
                         <th scope="col">Emp City</th>
                         <th scope="col">Emp Type</th>
                         <th scop="col">Emp Password</th>
-                        <th scope="col">Operations</th>
+            
                     </tr>
                 </thead>
                 <tbody>
