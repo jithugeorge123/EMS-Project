@@ -61,7 +61,6 @@
     <input type="text" name="issue_desc" placeholder="Not able to login" class="form-control"><br>
     <span class="text-danger">@error('issue_desc'){{$message}}@enderror</span><br>
     <button type="submit" class="btn btn-primary">Submit</button>
-
 </form>
 </div>
 </div>

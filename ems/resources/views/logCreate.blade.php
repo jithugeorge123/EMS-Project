@@ -53,10 +53,10 @@
     @csrf
     <label>Employee ID: {{session('user')}}</label>
     <input  type="hidden" name="emp_id" value ="{{session('user')}}" placeholder="id" class="form-control" ><br>
-    <label>Enter Issue Title</label>
+    <label>Issue Title</label>
     <input type="text" name="issue_title" placeholder="Laptop" class="form-control"><br>
     <span class="text-danger">@error('issue_title'){{$message}}@enderror</span><br>
-    <label>Enter Issue Description</label>
+    <label>Issue Description</label>
     <input type="text" name="issue_desc" placeholder="Not able to login" class="form-control"><br>
     <span class="text-danger">@error('issue_desc'){{$message}}@enderror</span><br>
     <button type="submit" class="btn btn-primary">Submit</button>

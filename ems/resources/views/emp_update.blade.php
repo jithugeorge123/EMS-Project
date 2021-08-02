@@ -26,6 +26,7 @@
 </head>
 <body>
 <div class="container" style="margin-top:50px">
+<div class="col-sm-6" style="margin-top:170px; margin-left:270px;">
 <form action = "/edit/<?php echo $users[0]->emp_id; ?>" method = "post">
 <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 <table class="table table-striped table-dark">
@@ -50,7 +51,8 @@ value = '<?php echo $users[0]->emp_comm_address; ?>'/>
 </tr>
 </table>
 </form>
-<button class="btn btn-primary"><a href="/emp-records">Back To Home</a></button>
+<a class="btn btn-primary" href="/emp-records">Back To Home</a>
+</div>
 </div>
 </body>
 </html>
