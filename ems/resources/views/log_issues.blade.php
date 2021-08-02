@@ -1,3 +1,10 @@
+<!--
+ * File Name => log_issues
+ * Author    => Surya Baba Javvadi
+ * Purpose   => File will show details of log issues by the each and every employee to the admin and perform some specific actions.
+ *-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +22,7 @@
             }
         }
         body{
-            background-color:	#696969;
+            background-color: #D3D3D3;
             color:white;
         }
         .box{
@@ -25,7 +32,7 @@
             padding:20px;
             border-radius:10px;
             box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-            background-color:#DCDCDC;
+            background-color:  #00b3b3;
             color:black;
         }
     </style>
@@ -50,7 +57,7 @@
     </nav>
     <div class="container" style="margin-top: 50px;">
         <div class="box">
-            <h1>Log Issues</h1><hr>
+            <h1 style="color: #800000;">Log Issues</h1><hr>
 
             <a href={{"create_log"}} class="btn btn-primary" style="background-color:#4DA8DA">Create Your Log</a>
             <br><br>
