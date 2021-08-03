@@ -21,7 +21,7 @@
         }
         }
         body{
-            background-color:#696969;
+            background-color:#D3D3D3;
         }
 
     </style>
@@ -53,7 +53,7 @@ value = '<?php echo $users[0]->emp_comm_address; ?>'/>
 </tr>
 </table>
 </form>
-<button class="btn btn-primary"><a href="/manager-records">Back To Home</a></button>
+<a class="btn btn-primary" href="/manager-records">Back To Home</a>
 </div>
 </div>
 </body>

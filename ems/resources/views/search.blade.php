@@ -1,3 +1,9 @@
+<!--
+ * File Name => search
+ * Author    => Surya Baba Javvadi
+ * Purpose   => File will show details of employee by searching his id or name  by the admin.
+ *-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +21,7 @@
             }
         }
         body{
-            background-color:	#696969;
+            background-color: #D3D3D3;
         }
         .container{
             min-height: 100vh;
@@ -29,7 +35,7 @@
             padding:20px;
             border-radius:10px;
             box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-            background-color:	#DCDCDC;
+            background-color:  #00b3b3;
             
         }
     </style>
@@ -54,7 +60,7 @@
     </nav>
 
     <div class="container" style="margin-top: 50px;">
-        <h3 style="color:white;">Search By Employee Id Or Employee First Name</h3>
+        <h3 style="color: #800000;">Search By Employee Id Or Employee First Name</h3>
         <hr>
         <form action="/searchbyidname" method="POST">
             @csrf
@@ -63,7 +69,7 @@
                 <label>Employee Or Employee First Name</label>
                 <input type="text" class="form-control" name="emp_id_name" placeholder="Enter a Employee Id or employee first name">
             </div>
-            <button class="btn btn-info" type="submit">Search By Id</button>
+            <button class="btn btn-primary" type="submit">Search By Id</button>
         </form>
     </div>
 </body>

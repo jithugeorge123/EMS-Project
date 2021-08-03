@@ -1,3 +1,10 @@
+<!--
+ * File Name => create_log
+ * Author    => Surya Baba Javvadi
+ * Purpose   => File will used to create admin's own logs.
+ *-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +17,7 @@
     <title>Create Logs</title>
     <style>
         body{
-            background-color:	#696969;
+            background-color: #D3D3D3;
         }
         .container{
             min-height: 100vh;
@@ -24,7 +31,7 @@
             padding:20px;
             border-radius:10px;
             box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-            background-color:	#DCDCDC;
+            background-color:  #00b3b3;
             
         }
     </style>

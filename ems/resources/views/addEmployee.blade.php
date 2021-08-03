@@ -21,10 +21,17 @@
         }
         }
         body{
-            background-color:#696969;
+            background-color:#D3D3D3;
             color: white;
         }
+        .container form{
+            width:500px;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            background-color:	#00b3b3;
 
+        }
     </style>
 </head>
 <body>
@@ -44,7 +51,7 @@
         </div>
     </nav>
     <div class="container" style="margin-top:50px">
-    <h1 style="margin-top:170px; margin-left:310px; color:white;">Add Reportees</h1>
+    <h1 style="margin-top:170px; margin-left:310px; color:#800000;">Add Reportees</h1>
     <div class="col-sm-6" style="margin-top:40px; margin-left:300px;">
     <form action = "/addemp" method="POST" class="form-group" >
     @csrf

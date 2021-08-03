@@ -1,3 +1,8 @@
+<!--
+ * File Name => admin
+ * Author    => Surya Baba Javvadi
+ * Purpose   => File will show names of employees who are registered so far to the admin.
+ *-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +20,6 @@
             }
         }
         body{
-            /* background-color:#696969; */
             background-color: #D3D3D3;
             color:white;
         }
@@ -27,7 +31,6 @@
             border:5px;
             border-radius:10px;
             box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-            /* background-color:#DCDCDC; */
             background-color:  #00b3b3;
             color:black;
         }
