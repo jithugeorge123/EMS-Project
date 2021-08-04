@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 
 class ManagerController extends Controller
 {
-    //display profile
+    //display profile of manager
     public function index()
     {
         $users = DB::table('employee')
@@ -22,7 +22,7 @@ class ManagerController extends Controller
             ->get();
         return view('manager', ['users' => $users]);
     }
-    //display reportees
+    //display  reportees details
     public function reports()
     {
         $data = DB::table('employee')
@@ -36,7 +36,7 @@ class ManagerController extends Controller
         $users = DB::select('select * from employee where emp_id = ?', [$id]);
         return view('manager_update', ['users' => $users]);
     }
-    //update profile details
+    //update mobile no and address profile details
     public function editrecord(Request $request, $id)
     {
         $emp_mobile_no = $request->input('emp_mobile_no');
@@ -53,7 +53,6 @@ class ManagerController extends Controller
                 'issue_desc' => 'required',
             ]
         );
-        //$users = DB::select('select emp_id from employee where emp_id = ?', [$id]);
         $emp = new log_issue;
         $emp->log_id = $req->log_id;
         $emp->emp_id = $req->emp_id;
@@ -61,8 +60,8 @@ class ManagerController extends Controller
         $emp->issue_desc = $req->issue_desc;
         $emp->save();
         return redirect()->back()->with('success', 'added issue');
-        // return redirect('insertIssue');
-    } //insert employee into project
+    }
+    //add employee into project
     public function insertEmp(Request $req)
     {
         $req->validate(
@@ -82,20 +81,14 @@ class ManagerController extends Controller
     //delete the employee from project
     public function delete($id)
     {
-        //$data = DB::select('select emp_proj_id from emp_proj where emp_id = ? and manager_id = 1', [$id]);
-        // $data = emp_proj::find($data);
-        //return $data;
-
         $data = DB::table('emp_proj')
             ->where('emp_id', $id);
         $data->delete();
         return redirect('reportees');
-        //return "Record deleted successfully";
 
     } //display the issues of reportees
     public function displayLog()
     {
-
         $logs = DB::table('log_issue')
             ->join('employee', 'employee.emp_id', '=', 'log_issue.emp_id')
             ->join('emp_proj', 'employee.emp_id', '=', 'emp_proj.emp_id')
