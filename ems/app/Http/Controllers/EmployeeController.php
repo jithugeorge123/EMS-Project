@@ -1,4 +1,9 @@
 <?php
+/**
+ * File Name => EmployeeController
+ * Author    => Pallavi Shinde
+ * Purpose   => File will control the normal(employee) screen.
+ */
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;

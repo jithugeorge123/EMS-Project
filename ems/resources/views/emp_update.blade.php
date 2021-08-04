@@ -31,27 +31,25 @@
 <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 <table class="table table-striped table-dark">
 <tr>
-<td>Mobile Number</td>
-<td>
-<input type = 'text' name = 'emp_mobile_no'
-value = '<?php echo $users[0]->emp_mobile_no; ?>'/>
-</td>
+   <td>Mobile Number</td>
+   <td>
+   <input type = 'text' name = 'emp_mobile_no' value = '<?php echo $users[0]->emp_mobile_no; ?>'/>
+   </td>
 </tr>
 <tr>
-<td>Communication Address</td>
-<td>
-<input type = 'text' name = 'emp_comm_address'
-value = '<?php echo $users[0]->emp_comm_address; ?>'/>
-</td>
+    <td>Communication Address</td>
+    <td>
+    <input type = 'text' name = 'emp_comm_address' value = '<?php echo $users[0]->emp_comm_address; ?>'/>
+    </td>
 </tr>
 <tr>
-<td colspan = '2'>
-<input type = 'submit' value = "Update Details" />
-</td>
+    <td colspan = '2'>
+    <input type = 'submit' value = "Update Details" />
+    </td>
 </tr>
 </table>
 </form>
-<a class="btn btn-primary" href="/emp-records">Back To Home</a>
+    <a class="btn btn-primary" href="/emp-records">Back To Home</a>
 </div>
 </div>
 </body>

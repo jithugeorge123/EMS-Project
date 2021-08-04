@@ -66,8 +66,8 @@
     <button type="submit" class="btn btn-primary" class="button">Submit</button>
 </form>
 <ul class="pager">
-            <li class="previous"><a href={{"/reportees"}}>Back</a></li>
-    </ul>
+    <li class="previous"><a href={{"/reportees"}}>Back</a></li>
+</ul>
 </div>
 </div>
 </body>

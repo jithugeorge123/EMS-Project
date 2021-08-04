@@ -32,7 +32,6 @@
             background-color:	#00b3b3;
 
         }
-
     </style>
     </head>
     <body>
