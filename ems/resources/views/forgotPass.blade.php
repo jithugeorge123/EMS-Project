@@ -17,25 +17,29 @@
 
    }
 }
- 
    .box{
     padding:10px;   
     width:600px;
     margin:100px auto;
     border:2px solid;
-    border-color: blue;
-    background-color: lightgrey;
+    /* border-color: blue; */
+    /* background-color:  #80dfff; */
+    background-color:  #00cccc; 
 
    }
 
    body{  
      font-family: Calibri, Helvetica, sans-serif;  
-     background-color: #333;  
-}
+     /* background-color: #333;   */
+     background-color: #DCDCDC;
+     /* background-color:  #00b3b3; */
+  }
+
 .pager{
+  
   margin: 0;
   position: relative;
-  top:-10%;
+  top:-5%;
   left: 98%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -75,6 +79,6 @@
    
   </div>
   <ul class="pager" >
-                <li class="previous"><a href='login'>Login</a></li>    
+                <li class="previous"><a style="background-color:#1a75ff; color:white;" href='login'>Login</a></li>    
             </ul>
  </body>

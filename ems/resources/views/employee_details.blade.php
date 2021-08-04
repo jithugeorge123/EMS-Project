@@ -1,3 +1,9 @@
+<!--
+ * File Name => employee_details
+ * Author    => Surya Baba Javvadi
+ * Purpose   => File will show details of employee in the tabular format to the admin.
+ *-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +16,7 @@
     <title>Employee Details</title>
     <style>
         body{
-            background-color:#696969;
+            background-color: #D3D3D3;
             color:white;
         }
         .box{
@@ -21,7 +27,7 @@
             border:5px;
             border-radius:10px;
             box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-            background-color:#DCDCDC;
+            background-color:  #00b3b3;
             color:black;
         }
     </style>
@@ -29,7 +35,7 @@
 <body>
     <div class="container">
         <div class="box">
-            <h1>Employee Details</h1><hr>
+            <h1 style="color: #800000;">Employee Details</h1><hr>
             <table class="table table-striped">
                 <thead>
                     <tr>
