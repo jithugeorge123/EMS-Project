@@ -10,7 +10,6 @@ class login extends TestCase
     {
         return array(
             array(1,123,'manager-records'),
-            
         );
     }
 

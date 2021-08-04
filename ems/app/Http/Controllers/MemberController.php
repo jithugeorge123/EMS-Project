@@ -10,37 +10,57 @@ use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
-
+    /**
+     *  employee names function
+     */
     function list() {
         $data = employee::all();
         return view('admin', ['employees' => $data]);
     }
 
+
+    /**
+     * details of employee function
+     */
     public function showsData($emp_id)
     {
         $data = employee::where('emp_id', $emp_id)->first();
         return view('employee_details', compact('data'));
     }
 
+
+    /**
+     * employee details in form for update 
+     */
     public function showData($emp_id)
     {
         $data = employee::where('emp_id', $emp_id)->first();
         return view('updateemployee', compact('data'));
     }
 
+    /**
+     * shows all employees details
+     */
     public function details()
     {
         $data = employee::all();
         return view('employees_details', ['employees' => $data]);
     }
 
-    public function delete($emp_id)
+
+    /**
+     * delete the employee record
+     */
+    public function delete_emp($emp_id)
     {
         $data = employee::where('emp_id', $emp_id);
         $data->delete();
         return redirect('employees_details');
     }
 
+    /**
+     * update employee records
+     */
     public function updateEmployee(Request $req)
     {
         $emp_id = $req->emp_id;
@@ -57,12 +77,18 @@ class MemberController extends Controller
         return redirect('employees_details');
     }
 
+    /**
+     * shows project details
+     */
     public function projdetails()
     {
         $data = project::all();
         return view('projects', ['data' => $data]);
     }
 
+    /**
+     * delete project details
+     */
     public function deleteproject($proj_id)
     {
         $data = project::where('proj_id', $proj_id);
@@ -70,12 +96,18 @@ class MemberController extends Controller
         return redirect('projects');
     }
 
+    /**
+     * shows the projects details
+     */
     public function showproject($proj_id)
     {
         $data = project::where('proj_id', $proj_id)->first();
         return view('updateproject', compact('data'));
     }
 
+    /** 
+     *Project details updation 
+     */
     public function updateproject(Request $req)
     {
         $proj_id = $req->proj_id;
@@ -87,6 +119,9 @@ class MemberController extends Controller
         return redirect('projects')->with('success','Updates successfully');
     }
 
+    /** 
+     *inserting details into project 
+     */
     public function addproject(Request $req)
     {
         $req->validate(
@@ -106,7 +141,9 @@ class MemberController extends Controller
         $result = $proj->save();
         return redirect('projects');
             }
-
+    /***
+     * Employee project details
+     */
     public function empprojects($emp_id)
     {
         $data = DB::table('project')
@@ -117,12 +154,18 @@ class MemberController extends Controller
         return view('emp_proj', ['data' => $data]);
     }
 
+    /**
+     * Employee log issues
+     */
     public function logissues()
     {
         $data = LogIssue::all();
         return view('log_issues', ['data' => $data]);
     }
 
+    /**
+     * Creating employee log issues
+     */
     public function createlog(Request $req)
     {
         $req->validate(
@@ -147,12 +190,18 @@ class MemberController extends Controller
         }
     }
 
+    /**
+     *Log issue of an employee to update
+     */
     public function logissue($log_id)
     {
         $data = LogIssue::where('log_id', $log_id)->first();
         return view('update_log', compact('data'));
     }
 
+    /**
+     *Log issues update
+     */
     public function updatelog(Request $req)
     {
         $log_id = $req->log_id;
@@ -164,6 +213,9 @@ class MemberController extends Controller
         return redirect('log_issues');
     }
 
+    /**
+     * Search Employee Project Details
+     */
     public function searchbyidorname(Request $req)
     {
         $fname = Employee::where('emp_first_name', $req->emp_id_name)->first();
