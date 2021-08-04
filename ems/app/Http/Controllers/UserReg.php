@@ -21,6 +21,5 @@ class UserReg extends Controller
         $emp->emp_password=$data["psw"];
         $emp->save();
         return view('regPass',['emp'=>$emp]);
-
     }
 }
