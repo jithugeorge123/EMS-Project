@@ -10,15 +10,14 @@ class UserAuth extends Controller
     //
     function userLogin(Request $req){
         $data=$req->input();
+        //validating inputs
         $emp_i= intval($data['user']);
         $req->validate([
             'user'=>'required',
             'password'=>'required',
         ]);
         
-        // $dbEmp= DB::table('employee')
-        //         ->where('emp_id', '=', $emp_i)
-        //         ->get();
+        
         $dbEmp=employee::where('emp_id','=',$emp_i)->first();
 
       
@@ -28,20 +27,23 @@ class UserAuth extends Controller
                 }
             else {
                 if($dbEmp->emp_password==$data['password']){
-                    if($dbEmp->emp_type=='normal'){
+                    if($dbEmp->emp_type=='normal')      //normal user
+                    {
                         $req->session()->put('user',$dbEmp->emp_id);
                         $req->session()->put('user_type','normal');
                         $req->session()->put('user_name',$dbEmp->emp_first_name."  " .$dbEmp->emp_last_name);
                         return redirect('emp-records');
                     }
-                    if($dbEmp->emp_type=='admin'){
+                    if($dbEmp->emp_type=='admin')       //admin
+                    {
                         $req->session()->put('user',$dbEmp->emp_id);
                         $req->session()->put('user_type','admin');
                         $req->session()->put('user_name',$dbEmp->emp_first_name);
                         return redirect('admin');
 
                     }
-                    if($dbEmp->emp_type=='manager'){
+                    if($dbEmp->emp_type=='manager')     //manager
+                    {
                         $req->session()->put('user',$dbEmp->emp_id);
                         $req->session()->put('user_type','manager');
                         $req->session()->put('user_name',$dbEmp->emp_first_name."  " .$dbEmp->emp_last_name );

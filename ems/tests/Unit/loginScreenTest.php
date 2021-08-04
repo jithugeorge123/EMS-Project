@@ -10,6 +10,7 @@ use Tests\TestCase;
 
 class loginScreenTest extends TestCase
 {
+    // use RefreshDatabase;
     public function addLoginProvider()
     {
         return array(
@@ -19,6 +20,58 @@ class loginScreenTest extends TestCase
     }
 
     
+    /**
+     * set Previous url
+     */
+    public function from(string $url)
+    {
+        $this->app['session']->setPreviousUrl($url);
+        return $this;
+    }
+
+    /**
+     * Login Test
+     * @dataProvider loginData
+     */
+
+    public function testLogin($username, $password, $status, $redirectTo)
+    {
+        fwrite(STDOUT, "\n" . __METHOD__ . " $username" . " $password\n");
+        $response = $this->from("/login")
+            ->post(
+                "/user", [
+                    'user' => $username,
+                    'password' => $password,
+                ]);
+        $response->assertStatus($status);
+        $response->assertRedirect($redirectTo);
+    }
+
+    /**
+     * Data provider for testLogin function
+     */
+
+    public function loginData()
+    {
+        return ([
+            ["1", "123", 302, "admin"], // admin
+            
+        ]);
+    }
+
+    /**
+     * Testing Login Route
+     */
+
+    public function testRouteLogin()
+    {
+        fwrite(STDOUT, "\n" . __METHOD__ . "\n");
+        $response = $this->get("login");
+        $response->assertStatus(200);
+    }
+
+   
+
     public function testLoginUrl()
     {
         // $actual=$pageModelManger->build(url:'/login', user: $id, password:$pass);
@@ -26,31 +79,24 @@ class loginScreenTest extends TestCase
         $response->assertStatus(404);
         
     }
-    /**
-     * @dataProvider addLoginProvider
-     */
-    
-    public function testLoginData($id, $pass,$expected)
-    {
-        
-        
-        // $response = $this->post('/user', ['user'=>$id, 'password'=>$pass]);
-        // $response->assertStatus(404);
-        $userData = [
-            "user" => $id,
-            "password" => $pass
-        ];
 
-        $this->json('POST', 'user', $userData, ['Accept' => 'application/json'])
-            ->assertStatus(200)
-            ->assertJson([
-                "message" => "The given data was invalid.",
-                "errors" => [
-                    "password" => ["The password confirmation does not match."]
-                ]
-            ]);
+    /**
+     * Login Test2
+     * @dataProvider loginData
+     */
+
+    // public function testLoginData($username, $password, $status, $redirectTo)
+    // {
+    
+    //     $response= $this->call('POST', 'http://127.0.0.1:8000/login',[
+    //         'user' => $username,
+    //         'password' => $password 
+    //     ]);
         
-    }
+    //     $response->assertEquals(302,$response->getStatusCode());
+    // }
+
+
 }
 
 

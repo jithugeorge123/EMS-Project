@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class UserReg extends Controller
 {
-    //
+    // registration function 
     function userReg(Request $req){
         $emp=new employee;
         $data= $req->input();

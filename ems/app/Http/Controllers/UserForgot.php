@@ -9,6 +9,7 @@ class UserForgot extends Controller
 {
     //
     function userFor(Request $req){
+        //validating input
         $req->validate([
             'empId'=>'required',
         ]);
@@ -20,7 +21,7 @@ class UserForgot extends Controller
 
         return view('editPass',['dbEmp'=>$dbEmp]);
     }
-
+    //updating the employee password
     function update(Request $req){
         $data=employee::find($req->empId);
         $data->emp_password=$req->password;

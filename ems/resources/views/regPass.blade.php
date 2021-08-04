@@ -78,6 +78,8 @@ hr {
 </style>  
 </head>  
 <body>  
+
+<!-- registration form -->
   <div class="container">  
   <center>  <h1> Employee Registeration Details</h1> </center>  
   <hr>  
