@@ -22,4 +22,4 @@ class UserReg extends Controller
         $emp->save();
         return view('regPass',['emp'=>$emp]);
     }
-}
+    }
