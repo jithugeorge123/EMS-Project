@@ -27,7 +27,7 @@ class ManagerController extends Controller
     public function reports()
     {
         $data = DB::table('employee')
-            ->JOIN('emp_proj', 'employee.emp_id', "=", 'emp_proj.emp_id')
+            ->join('emp_proj', 'employee.emp_id', "=", 'emp_proj.emp_id')
             ->WHERE('emp_proj.manager_id', session('user'))
             ->get();
         return view('reportees', ['data' => $data]);
@@ -100,10 +100,10 @@ class ManagerController extends Controller
     public function displayLog()
     {
         $logs = DB::table('log_issue')
-            ->JOIN('employee', 'employee.emp_id', '=', 'log_issue.emp_id')
-            ->JOIN('emp_proj', 'employee.emp_id', '=', 'emp_proj.emp_id')
-            ->JOIN('project', 'project.proj_id', '=', 'emp_proj.proj_id')
-            ->SELECT('log_issue.*')
+            ->join('employee', 'employee.emp_id', '=', 'log_issue.emp_id')
+            ->join('emp_proj', 'employee.emp_id', '=', 'emp_proj.emp_id')
+            ->join('project', 'project.proj_id', '=', 'emp_proj.proj_id')
+            ->join('log_issue.*')
             ->WHERE('emp_proj.manager_id', session('user'))
             ->get();
         return view('log', ['logs' => $logs]);
