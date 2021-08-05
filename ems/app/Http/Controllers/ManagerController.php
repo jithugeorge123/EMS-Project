@@ -32,11 +32,13 @@ class ManagerController extends Controller
             ->get();
         return view('reportees', ['data' => $data]);
     }
+
     public function show($id)
     {
         $users = DB::select('SELECT * FROM employee WHERE emp_id = ?', [$id]);
         return view('manager_update', ['users' => $users]);
     }
+
     //update mobile no and address profile details
     public function editrecord(Request $request, $id)
     {
@@ -44,7 +46,9 @@ class ManagerController extends Controller
         $emp_comm_address = $request->input('emp_comm_address');
         DB::update('UPDATE employee SET emp_mobile_no = ?,emp_comm_address=? WHERE emp_id = ?', [$emp_mobile_no, $emp_comm_address, $id]);
         return redirect('manager-records');
-    } //insert issues
+    }
+
+    //insert issues
     public function insertIssue(Request $req)
     {
         $req->validate(
@@ -62,6 +66,7 @@ class ManagerController extends Controller
         $emp->save();
         return redirect()->back()->with('success', 'Added Issue');
     }
+
     //add employee into project
     public function insertEmp(Request $req)
     {
@@ -79,6 +84,7 @@ class ManagerController extends Controller
         return redirect('addEmployee');
 
     }
+
     //delete the employee from project
     public function delete($id)
     {
@@ -87,7 +93,9 @@ class ManagerController extends Controller
         $data->delete();
         return redirect('reportees');
 
-    } //display the issues of reportees
+    }
+
+    //display the issues of reportees
     public function displayLog()
     {
         $logs = DB::table('log_issue')
