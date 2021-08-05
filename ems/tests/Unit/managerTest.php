@@ -16,32 +16,32 @@ class managerTest extends TestCase
     }
 
     /**
-     * Login Test
-     * @dataProvider loginData
+     * Manager Test
+     * @dataProvider loginDetails
      */
-    // public function testLogin($emp_id, $password, $status, $redirectTo)
-    // {
-    //     //fwrite(STDOUT, "\n" . METHOD . " $emp_id" . " $password\n");
-    //     $response = $this->from('/login')
-    //         ->post(
-    //             '/user', [
-    //                 "user" => $emp_id,
-    //                 "password" => $password,
-    //             ]);
-    //     $response->assertStatus($status);
-    //     $response->assertRedirect($redirectTo);
-    // }
-    // /**
-    //  * Data provider for testLogin function
-    //  */
+    public function testLoginDetails($emp_id, $password, $status, $redirectTo)
+    {
+        $response = $this->from('/login')
+            ->post(
+                '/user', [
+                    "user" => $emp_id,
+                    "password" => $password,
+                ]);
+        $response->assertStatus($status);
+        $response->assertRedirect($redirectTo);
+    }
 
-    public function loginData()
+    /**
+     * Data provider for testLoginDetails function
+     */
+    public function loginDetails()
     {
         return ([
             ["5", "1234567", 302, "admin"], // manager
         ]);
     }
 
+    //testing  url
     public function testIssueUrl()
     {
         $response = $this->get('/insertIssue');
@@ -49,6 +49,7 @@ class managerTest extends TestCase
 
         $response->assertStatus(200);
     }
+
     public function testLogUrl()
     {
         $response = $this->get('/addEmployee');
@@ -56,6 +57,7 @@ class managerTest extends TestCase
 
         $response->assertStatus(200);
     }
+
     public function testAddEmployeeUrl()
     {
         $response = $this->get('/logCreate');
@@ -68,10 +70,8 @@ class managerTest extends TestCase
      * Testing editRecords function
      * @dataProvider updateData
      */
-
     public function testUpdateDetails($emp_id, $emp_mobile_no, $emp_comm_address, $status, $redirectTo)
     {
-        // fwrite(STDOUT, "\n" . _METHOD_ . "\n");
         $response = $this->from('manager-update')
             ->post(
                 "update/$emp_id",
@@ -83,6 +83,7 @@ class managerTest extends TestCase
         $response->assertStatus($status);
         $response->assertRedirect($redirectTo);
     }
+
     /**
      * Data provider for testUpdateDetails function
      */
@@ -90,6 +91,37 @@ class managerTest extends TestCase
     {
         return ([
             ["2", "9898989898", "pune", 302, "manager-records"],
+            ["2", " ", "pune", 302, "manager-records"],
+        ]);
+    }
+
+    /**
+     * Testing insertIssue function
+     * @dataProvider MgrIssueData
+     */
+    public function testInsertMgrIssue($emp_id, $issue_title, $issue_desc, $status, $redirectTo)
+    {
+        // fwrite(STDOUT, "\n" . _METHOD_ . "\n");
+        $response = $this->from('logCreate')
+            ->post(
+                "insertRecord",
+                [
+                    "issue_title" => $issue_title,
+                    "issue_desc" => $issue_desc,
+                ]);
+
+        $response->assertStatus($status);
+        $response->assertRedirect($redirectTo);
+    }
+
+    /**
+     * Data provider for testInsertMgrIssue function
+     */
+    public function MgrIssueData()
+    {
+        return ([
+            ["3", "laptop", "Not able to login", 302, "logCreate"],
+            ["2", " laptop ", "Not able to logout", 302, "logCreate"],
         ]);
     }
 
