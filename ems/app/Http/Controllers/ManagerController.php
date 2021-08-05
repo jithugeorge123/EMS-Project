@@ -33,6 +33,7 @@ class ManagerController extends Controller
         return view('reportees', ['data' => $data]);
     }
 
+    //display employee details
     public function show($id)
     {
         $users = DB::select('SELECT * FROM employee WHERE emp_id = ?', [$id]);
