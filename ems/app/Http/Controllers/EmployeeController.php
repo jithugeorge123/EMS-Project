@@ -54,6 +54,6 @@ class EmployeeController extends Controller
         $emp->issue_title = $req->issue_title;
         $emp->issue_desc = $req->issue_desc;
         $emp->save();
-        return redirect()->back()->with('success', 'Added Issue');
+        return redirect()->back()->with('success', 'Issue Added');
     }
 }

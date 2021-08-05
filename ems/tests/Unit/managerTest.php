@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class managerTest extends TestCase
 {
     /**
      * set Previous url
@@ -19,21 +19,21 @@ class ExampleTest extends TestCase
      * Login Test
      * @dataProvider loginData
      */
-    public function testLogin($emp_id, $password, $status, $redirectTo)
-    {
-        //fwrite(STDOUT, "\n" . METHOD . " $emp_id" . " $password\n");
-        $response = $this->from('/login')
-            ->post(
-                '/user', [
-                    "user" => $emp_id,
-                    "password" => $password,
-                ]);
-        $response->assertStatus($status);
-        $response->assertRedirect($redirectTo);
-    }
-    /**
-     * Data provider for testLogin function
-     */
+    // public function testLogin($emp_id, $password, $status, $redirectTo)
+    // {
+    //     //fwrite(STDOUT, "\n" . METHOD . " $emp_id" . " $password\n");
+    //     $response = $this->from('/login')
+    //         ->post(
+    //             '/user', [
+    //                 "user" => $emp_id,
+    //                 "password" => $password,
+    //             ]);
+    //     $response->assertStatus($status);
+    //     $response->assertRedirect($redirectTo);
+    // }
+    // /**
+    //  * Data provider for testLogin function
+    //  */
 
     public function loginData()
     {

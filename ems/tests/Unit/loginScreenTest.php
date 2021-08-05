@@ -89,7 +89,7 @@ class loginScreenTest extends TestCase
     public function testResetPasswordRoute()
     {
         fwrite(STDOUT, "\n" . __METHOD__ . "\n");
-        $response = $this->get("forgotPass");
+        $response = $this->get("edittPass");
         $response->assertStatus(200);
     }
 
