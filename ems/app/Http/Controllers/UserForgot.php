@@ -1,31 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
+
 use App\Models\employee;
+use Illuminate\Http\Request;
 
 class UserForgot extends Controller
 {
-    //
-    function userFor(Request $req){
+    public function userFor(Request $req)
+    {
+        //validating input
         $req->validate([
-            'empId'=>'required',
+            'empId' => 'required',
         ]);
-        $data=$req->input();
-        $emp_id= intval($data['empId']);
-      
-        $dbEmp=employee::find($emp_id);
-        // return $dbEmp;
+        $data = $req->input();
+        $emp_id = intval($data['empId']);
 
-        return view('editPass',['dbEmp'=>$dbEmp]);
+        $dbEmp = employee::find($emp_id);
+
+        return view('editPass', ['dbEmp' => $dbEmp]);
     }
-
-    function update(Request $req){
-        $data=employee::find($req->empId);
-        $data->emp_password=$req->password;
+    //updating the employee password
+    public function update(Request $req)
+    {
+        $data = employee::find($req->empId);
+        $data->emp_password = $req->password;
         $data->save();
-        return redirect()->back()->with('success', 'password changed');
-
+        return redirect()->back()->with('success', 'Password Changed');
     }
 }

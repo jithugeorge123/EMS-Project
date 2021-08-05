@@ -44,7 +44,7 @@ Route::view('employee', 'employee');
 
 Route::post("register", [UserReg::class, 'userReg']);
 Route::view('forgotPass', 'forgotPass');
-Route::view('editPass', 'edittPass');
+Route::view('editPass', 'editPass');
 Route::view('regPass', 'regPass');
 Route::post("forgotPass", [UserForgot::class, 'userFor']);
 Route::post("editPass", [UserForgot::class, 'update']);

@@ -4,15 +4,8 @@ namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 
-class login extends TestCase
-{   
-    public function addLoginProvider()
-    {
-        return array(
-            array(1,123,'manager-records'),
-        );
-    }
-
+class RegistrationTest extends TestCase
+{
     /**
      * A basic unit test example.
      *
