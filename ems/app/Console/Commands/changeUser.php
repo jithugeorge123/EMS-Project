@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
 use App\Models\employee;
+use Illuminate\Console\Command;
 
 class changeUser extends Command
 {
@@ -38,31 +38,28 @@ class changeUser extends Command
      */
     public function handle()
     {
-           $chang_id= readline("Enter the Employee Id for changing the type:  ");
-           $emp=employee::find(intval($chang_id)); 
-           if(!$emp){
-               echo "\n Wrong Employee ID ";
-           }
-           else{
-               echo "\n1. Normal Employee. \n2. Manager. \n3. Admin. ";
-               $opt=readline("\n Enter the Change you want to make: ");
-               switch ($opt) {
+        $chang_id = readline("Enter the Employee Id for changing the type:  ");
+        $emp = employee::find(intval($chang_id));
+        if (!$emp) {
+            echo "\n Invalid Employee ID ";
+        } else {
+            echo "\n1. Normal Employee. \n2. Manager. \n3. Admin. ";
+            $opt = readline("\n Enter the Change you want to make: ");
+            switch ($opt) {
                 case "1":
-                    $emp->emp_type="normal";
-                  break;
+                    $emp->emp_type = "normal";
+                    break;
                 case "2":
-                    $emp->emp_type="manager";
-                  break;
+                    $emp->emp_type = "manager";
+                    break;
                 case "3":
-                    $emp->emp_type="admin";
-                  break;
-                }
-                $emp->save();
-                echo "\n Your change was succesfull";
+                    $emp->emp_type = "admin";
+                    break;
+            }
+            $emp->save();
+            echo "\n Your change was succesfull";
 
-           }
         }
-        
+    }
 
-    
 }

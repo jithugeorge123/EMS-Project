@@ -116,7 +116,7 @@ class MemberController extends Controller
         $proj_start_date = $req->proj_start_date;
         $proj_end_date = $req->proj_end_date;
         DB::update('update project set proj_name=?,proj_desc=?,proj_start_date=?,proj_end_date=? where proj_id=?', [$proj_name, $proj_desc, $proj_start_date, $proj_end_date, $proj_id]);
-        return redirect('projects')->with('success','Updates successfully');
+        return redirect('projects')->with('success','Updated successfully');
     }
 
     /** 
@@ -140,7 +140,8 @@ class MemberController extends Controller
         $proj->proj_end_date = $data['proj_end_date'];
         $result = $proj->save();
         return redirect('projects');
-            }
+    }
+
     /***
      * Employee project details
      */

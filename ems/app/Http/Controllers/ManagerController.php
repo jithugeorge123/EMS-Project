@@ -22,6 +22,7 @@ class ManagerController extends Controller
             ->get();
         return view('manager', ['users' => $users]);
     }
+
     //display  reportees details
     public function reports()
     {
@@ -31,11 +32,13 @@ class ManagerController extends Controller
             ->get();
         return view('reportees', ['data' => $data]);
     }
+    
     public function show($id)
     {
         $users = DB::select('select * from employee where emp_id = ?', [$id]);
         return view('manager_update', ['users' => $users]);
     }
+
     //update mobile no and address profile details
     public function editrecord(Request $request, $id)
     {

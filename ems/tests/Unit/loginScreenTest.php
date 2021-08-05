@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use App\Models\employee;
+// use Illuminate\Foundation\Testing\RefreshDatabase;
+// use Illuminate\Foundation\Testing\WithFaker;
+// use App\Models\employee;
 
 use Tests\TestCase;
 
@@ -55,6 +55,8 @@ class loginScreenTest extends TestCase
     {
         return ([
             ["1", "123", 302, "admin"], // admin
+            ["2", "123", 302, "manager-records"], // manager
+            ["3", "856", 302, "emp-records"], // employee
             
         ]);
     }
@@ -80,21 +82,49 @@ class loginScreenTest extends TestCase
         
     }
 
-    /**
-     * Login Test2
-     * @dataProvider loginData
+     /**
+     * Testing Reset Password Route
      */
 
-    // public function testLoginData($username, $password, $status, $redirectTo)
-    // {
-    
-    //     $response= $this->call('POST', 'http://127.0.0.1:8000/login',[
-    //         'user' => $username,
-    //         'password' => $password 
-    //     ]);
-        
-    //     $response->assertEquals(302,$response->getStatusCode());
-    // }
+    public function testResetPasswordRoute()
+    {
+        fwrite(STDOUT, "\n" . __METHOD__ . "\n");
+        $response = $this->get("forgotPass");
+        $response->assertStatus(200);
+    }
+
+    /**
+     * Testing resetpassword function
+     * @dataProvider resetData
+     */
+
+    public function testResetPassword($username, $password, $status, $redirectTo)
+    {
+        fwrite(STDOUT, "\n" . __METHOD__ . "\n");
+        $response = $this->from('/forgotPass')
+            ->post(
+                "/forgotPass",
+                [
+                    "empId" => $username,  
+                ]);
+                // "password" => $password,
+                $response = $this->get("editPass");
+                $response->assertStatus(200);   
+        // $response->assertStatus($status);
+        // $response->assertView($redirectTo);
+    }
+
+    /**
+     * Data provider for testResetPassword
+     */
+
+    public function resetData()
+    {
+        return ([
+            ["1", "123", 200, "editPass"],
+            
+        ]);
+    }
 
 
 }
