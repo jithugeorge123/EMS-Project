@@ -135,4 +135,28 @@ class LoginTest extends TestCase
         ]);
     }
 
+    /**
+     * @dataProvider logData
+     */
+    public function testissues($log_id,$emp_id, $issue_title, $issue_desc, $issue_status,$status, $redirectTo){
+        $response = $this->from('update_log_issue')
+            ->post(
+                "update_log",
+                [
+                    "log_id" => $log_id,
+                    "emp_id" => $emp_id,
+                    "issue_title" => $issue_title,
+                    "issue_desc" => $issue_desc,
+                    "issue_status" => $issue_status
+            ]);
+        $response->assertStatus($status);
+        $response->assertRedirect($redirectTo);
+    }
+
+    public function logData(){
+        return ([
+            ["1","1","Login Issue","unable to login","resolved",302, "log_issues"]
+        ]);
+    }
+
 }
