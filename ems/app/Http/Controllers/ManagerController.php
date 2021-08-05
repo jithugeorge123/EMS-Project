@@ -18,7 +18,7 @@ class ManagerController extends Controller
     public function index()
     {
         $users = DB::table('employee')
-            ->where('emp_id', session('user'))
+            ->WHERE('emp_id', session('user'))
             ->get();
         return view('manager', ['users' => $users]);
     }
@@ -27,15 +27,15 @@ class ManagerController extends Controller
     public function reports()
     {
         $data = DB::table('employee')
-            ->join('emp_proj', 'employee.emp_id', "=", 'emp_proj.emp_id')
-            ->where('emp_proj.manager_id', session('user'))
+            ->JOIN('emp_proj', 'employee.emp_id', "=", 'emp_proj.emp_id')
+            ->WHERE('emp_proj.manager_id', session('user'))
             ->get();
         return view('reportees', ['data' => $data]);
     }
-    
+
     public function show($id)
     {
-        $users = DB::select('select * from employee where emp_id = ?', [$id]);
+        $users = DB::select('SELECT * FROM employee WHERE emp_id = ?', [$id]);
         return view('manager_update', ['users' => $users]);
     }
 
@@ -44,9 +44,11 @@ class ManagerController extends Controller
     {
         $emp_mobile_no = $request->input('emp_mobile_no');
         $emp_comm_address = $request->input('emp_comm_address');
-        DB::update('update employee set emp_mobile_no = ?,emp_comm_address=? where emp_id = ?', [$emp_mobile_no, $emp_comm_address, $id]);
+        DB::update('UPDATE employee SET emp_mobile_no = ?,emp_comm_address=? WHERE emp_id = ?', [$emp_mobile_no, $emp_comm_address, $id]);
         return redirect('manager-records');
-    } //insert issues
+    }
+
+    //insert issues
     public function insertIssue(Request $req)
     {
         $req->validate(
@@ -62,8 +64,9 @@ class ManagerController extends Controller
         $emp->issue_title = $req->issue_title;
         $emp->issue_desc = $req->issue_desc;
         $emp->save();
-        return redirect()->back()->with('success', 'added issue');
+        return redirect()->back()->with('success', 'Added Issue');
     }
+
     //add employee into project
     public function insertEmp(Request $req)
     {
@@ -81,23 +84,26 @@ class ManagerController extends Controller
         return redirect('addEmployee');
 
     }
+
     //delete the employee from project
     public function delete($id)
     {
         $data = DB::table('emp_proj')
-            ->where('emp_id', $id);
+            ->WHERE('emp_id', $id);
         $data->delete();
         return redirect('reportees');
 
-    } //display the issues of reportees
+    }
+
+    //display the issues of reportees
     public function displayLog()
     {
         $logs = DB::table('log_issue')
-            ->join('employee', 'employee.emp_id', '=', 'log_issue.emp_id')
-            ->join('emp_proj', 'employee.emp_id', '=', 'emp_proj.emp_id')
-            ->join('project', 'project.proj_id', '=', 'emp_proj.proj_id')
-            ->select('log_issue.*')
-            ->where('emp_proj.manager_id', session('user'))
+            ->JOIN('employee', 'employee.emp_id', '=', 'log_issue.emp_id')
+            ->JOIN('emp_proj', 'employee.emp_id', '=', 'emp_proj.emp_id')
+            ->JOIN('project', 'project.proj_id', '=', 'emp_proj.proj_id')
+            ->SELECT('log_issue.*')
+            ->WHERE('emp_proj.manager_id', session('user'))
             ->get();
         return view('log', ['logs' => $logs]);
     }

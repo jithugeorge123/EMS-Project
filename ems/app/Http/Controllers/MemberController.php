@@ -18,7 +18,6 @@ class MemberController extends Controller
         return view('admin', ['employees' => $data]);
     }
 
-
     /**
      * details of employee function
      */
@@ -28,9 +27,8 @@ class MemberController extends Controller
         return view('employee_details', compact('data'));
     }
 
-
     /**
-     * employee details in form for update 
+     * employee details in form for update
      */
     public function showData($emp_id)
     {
@@ -46,7 +44,6 @@ class MemberController extends Controller
         $data = employee::all();
         return view('employees_details', ['employees' => $data]);
     }
-
 
     /**
      * delete the employee record
@@ -73,7 +70,7 @@ class MemberController extends Controller
         $emp_city = $req->emp_city;
         $emp_type = $req->emp_type;
         $emp_password = $req->emp_password;
-        $data =DB::update('update employee set emp_first_name=?,emp_last_name=?,emp_mobile_no=?,emp_dob=?,emp_gender=?,emp_comm_address=?,emp_city=?,emp_type=?,emp_password=? where emp_id=?', [$emp_first_name, $emp_last_name, $emp_mobile_no, $emp_dob, $emp_gender, $emp_comm_address, $emp_city, $emp_type, $emp_password, $emp_id]);
+        $data = DB::update('UPDATE employee SET emp_first_name=?,emp_last_name=?,emp_mobile_no=?,emp_dob=?,emp_gender=?,emp_comm_address=?,emp_city=?,emp_type=?,emp_password=? WHERE emp_id=?', [$emp_first_name, $emp_last_name, $emp_mobile_no, $emp_dob, $emp_gender, $emp_comm_address, $emp_city, $emp_type, $emp_password, $emp_id]);
         return redirect('employees_details');
     }
 
@@ -105,8 +102,8 @@ class MemberController extends Controller
         return view('updateproject', compact('data'));
     }
 
-    /** 
-     *Project details updation 
+    /**
+     *Project details updation
      */
     public function updateproject(Request $req)
     {
@@ -115,12 +112,12 @@ class MemberController extends Controller
         $proj_desc = $req->proj_desc;
         $proj_start_date = $req->proj_start_date;
         $proj_end_date = $req->proj_end_date;
-        DB::update('update project set proj_name=?,proj_desc=?,proj_start_date=?,proj_end_date=? where proj_id=?', [$proj_name, $proj_desc, $proj_start_date, $proj_end_date, $proj_id]);
-        return redirect('projects')->with('success','Updated successfully');
+        DB::update('UPDATE project SET proj_name=?,proj_desc=?,proj_start_date=?,proj_end_date=? WHERE proj_id=?', [$proj_name, $proj_desc, $proj_start_date, $proj_end_date, $proj_id]);
+        return redirect('projects')->with('success', 'Updated Successfully');
     }
 
-    /** 
-     *inserting details into project 
+    /**
+     *inserting details into project
      */
     public function addproject(Request $req)
     {
@@ -129,7 +126,7 @@ class MemberController extends Controller
                 'proj_name' => 'required',
                 'proj_desc' => 'required',
                 'proj_start_end' => 'required|before:proj_end_date',
-                'proj_end_date' => 'required|after:proj_start_date'
+                'proj_end_date' => 'required|after:proj_start_date',
             ]
         );
         $proj = new project;
@@ -174,7 +171,7 @@ class MemberController extends Controller
                 'emp_id' => 'required',
                 'issue_title' => 'required',
                 'issue_desc' => 'required',
-                'issue_status' => 'required'
+                'issue_status' => 'required',
             ]
         );
         $log = new LogIssue;
@@ -184,10 +181,8 @@ class MemberController extends Controller
         $log->issue_desc = $data['issue_desc'];
         $log->issue_status = $data['issue_status'];
         $data = $log->save();
-        if($data){
+        if ($data) {
             return redirect('log_issues');
-        }else{
-            return back()->with('fail','something wrong');
         }
     }
 
@@ -210,7 +205,7 @@ class MemberController extends Controller
         $issue_title = $req->issue_title;
         $issue_desc = $req->issue_desc;
         $issue_status = $req->issue_status;
-        DB::update('update log_issue set emp_id=?,issue_title=?,issue_desc=?,issue_status=? where log_id=?', [$emp_id, $issue_title, $issue_desc, $issue_status, $log_id]);
+        DB::update('UPDATE log_issue SET emp_id=?,issue_title=?,issue_desc=?,issue_status=? WHERE log_id=?', [$emp_id, $issue_title, $issue_desc, $issue_status, $log_id]);
         return redirect('log_issues');
     }
 
@@ -236,7 +231,7 @@ class MemberController extends Controller
                 ->get();
             return view('searchproj', ['data' => $data]);
         } else {
-            return view('search', ['data' => 'Enter Valid Credentials']);
+            return view('search', ['data' => 'Enter Valid Values']);
         }
     }
 }
